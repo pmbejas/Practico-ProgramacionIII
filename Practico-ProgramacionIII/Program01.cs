@@ -14,6 +14,7 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             string user = Program.ReadString("Ingrese su nombre de usuario (4 a 20 caracteres): ", 4, 20, ConsoleColor.Yellow, ConsoleColor.White);
             string userPassword = Program.ReadString("Ingrese su contraseña (4 a 15 caracteres): ", 4, 15, ConsoleColor.Yellow, ConsoleColor.Black);
+            string nombreCompleto = Program.ReadString("Ingrese su nombre completo (4 a 50 caracteres): ", 4, 50, ConsoleColor.Yellow, ConsoleColor.White);
             Console.WriteLine();
             Console.ResetColor();
             Console.WriteLine("Por favor, recuerde los datos que acaba de ingresar...");
@@ -41,7 +42,7 @@ namespace Practico_ProgramacionIII
             {
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.SetCursorPosition(0, 12);
-                Console.WriteLine($"Bienvenido, {user}!");
+                Console.WriteLine($"Bienvenido, {nombreCompleto}!");
                 Console.WriteLine("Has ingresado correctamente tus datos de inicio de sesión");
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine();

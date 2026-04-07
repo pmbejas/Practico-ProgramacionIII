@@ -4,7 +4,7 @@
     {
         public static class VariablesGlobales
         {
-            public static string pieDePagina = "Practico Programacion III - Alumno: Pablo Bejas";
+            public static string pieDePagina = "Programación III (Práctica) - Profesor: Rodrigo Esper - Alumno: Pablo Bejas";
         }
 
         public static int ReadInteger(string mensaje, ConsoleColor colorTexto)
