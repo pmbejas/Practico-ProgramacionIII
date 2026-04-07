@@ -2,7 +2,12 @@
 {
     internal class Program
     {
-        static int ReadInteger(string mensaje, ConsoleColor colorTexto)
+        public static class VariablesGlobales
+        {
+            public static string pieDePagina = "Practico Programacion III - Alumno: Pablo Bejas";
+        }
+
+        public static int ReadInteger(string mensaje, ConsoleColor colorTexto)
         {
             int value;
             Console.ForegroundColor = colorTexto;
@@ -19,6 +24,44 @@
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.SetCursorPosition(0, fila + 2);
                 Console.WriteLine("No se ingresó un número entero");
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("Presiona cualquier tecla para intentar nuevamente...");
+                Console.ReadKey();
+                int cantidadEspacios = Console.WindowWidth - columna;
+                Console.SetCursorPosition(columna, fila);
+                Console.Write(new string(' ', cantidadEspacios));
+                Console.SetCursorPosition(0, fila + 2);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(0, fila + 3);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.ResetColor();
+                Console.SetCursorPosition(columna, fila);
+            }
+        }
+
+        public static string ReadString(string mensaje, int cantidadCaracteresMinimo, int cantidadCaracteresMaximo, ConsoleColor colorTextoMensaje = ConsoleColor.White, ConsoleColor colorTextoValor = ConsoleColor.White, bool checkError = true)
+        {
+            string? value;
+            Console.ForegroundColor = colorTextoMensaje;
+            Console.Write(mensaje);
+            Console.ForegroundColor = colorTextoValor;
+            int fila = Console.CursorTop;
+            int columna = Console.CursorLeft;
+            while (true)
+            {
+                value = Console.ReadLine();
+                if (!checkError)    
+                {
+                    return value ?? string.Empty;
+                }
+
+                if (value?.Length >= cantidadCaracteresMinimo && value?.Length <= cantidadCaracteresMaximo)
+                {
+                    return value;
+                }
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.SetCursorPosition(0, fila + 2);
+                Console.WriteLine($"Debe Ingresar entre {cantidadCaracteresMinimo} y {cantidadCaracteresMaximo} caracteres");
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine("Presiona cualquier tecla para intentar nuevamente...");
                 Console.ReadKey();
@@ -51,7 +94,7 @@
             Console.Title = titulo;
             Console.SetCursorPosition((Console.WindowWidth-titulo.Length) / 2, linea);
             Console.ForegroundColor = colorTexto;
-            Console.WriteLine(titulo);
+            Console.Write(titulo);
             Console.ResetColor();
             Console.WriteLine();
         }
@@ -86,6 +129,7 @@
             while (opcionElegida != 99)
             {
                 Console.Clear();
+                MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight-1);
                 MostrarTitulo("Menú Principal", ConsoleColor.DarkBlue, 0);
                 Console.WriteLine();
                 Console.WriteLine("0. Program 00");
