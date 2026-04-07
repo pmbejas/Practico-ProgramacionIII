@@ -107,6 +107,7 @@
             MostrarTitulo("En breve sera puesto en funcionamiento", ConsoleColor.Yellow, (Console.WindowHeight / 2) - 2);
             MostrarTitulo("Disculpe las molestias ocasionadas", ConsoleColor.Yellow, (Console.WindowHeight / 2));
             MostrarTitulo("Presione Una Tecla Para Volver", ConsoleColor.Yellow, (Console.WindowHeight / 2) + 2);
+            Program.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
             Console.CursorVisible = false;
             Console.ReadKey();
             Console.CursorVisible = true;

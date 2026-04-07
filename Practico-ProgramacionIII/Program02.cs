@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static Practico_ProgramacionIII.Program;
 
 namespace Practico_ProgramacionIII
 {
