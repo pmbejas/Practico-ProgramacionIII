@@ -10,8 +10,8 @@ namespace Practico_ProgramacionIII
         public static void Principal()
         {
             Console.Clear();
-            Program.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
-            Program.MostrarTitulo("Ejercicio 00 - Hola Mundo", ConsoleColor.DarkBlue,0);
+            Funciones.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Funciones.MostrarTitulo("Ejercicio 00 - Hola Mundo", ConsoleColor.DarkBlue,0);
             Console.WriteLine();
             Console.WriteLine("Hola Mundo!!!");
             Console.WriteLine("Me llamo Pablo Bejas");
@@ -30,7 +30,7 @@ namespace Practico_ProgramacionIII
             Console.ResetColor();
             Console.WriteLine("Eso es todo por hoy");
             Console.WriteLine("Gracias por leer...");
-            Program.EsperarTeclaFinal();
+            Funciones.EsperarTeclaFinal();
         }
     }
 }

@@ -1,0 +1,133 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using static Practico_ProgramacionIII.Program;
+
+namespace Practico_ProgramacionIII
+{
+    internal class Funciones
+    {
+        public static void TextoEnColor(string texto, ConsoleColor colorTexto, ConsoleColor colorOriginal)
+        {
+            Console.ForegroundColor = colorTexto;
+            Console.Write(texto);
+            Console.ForegroundColor = colorOriginal;
+        }
+        public static int ReadInteger(string mensaje, ConsoleColor colorTexto)
+        {
+            int value;
+            Console.ForegroundColor = colorTexto;
+            Console.Write(mensaje);
+            Console.ResetColor();
+            int fila = Console.CursorTop;
+            int columna = Console.CursorLeft;
+            while (true)
+            {
+                if (int.TryParse(Console.ReadLine(), out value))
+                {
+                    return value;
+                }
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.SetCursorPosition(0, fila + 2);
+                Console.WriteLine("No se ingresó un número entero");
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("Presiona cualquier tecla para intentar nuevamente...");
+                Console.ReadKey();
+                int cantidadEspacios = Console.WindowWidth - columna;
+                Console.SetCursorPosition(columna, fila);
+                Console.Write(new string(' ', cantidadEspacios));
+                Console.SetCursorPosition(0, fila + 2);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(0, fila + 3);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.ResetColor();
+                Console.SetCursorPosition(columna, fila);
+            }
+        }
+
+        public static string ReadString(string mensaje, int cantidadCaracteresMinimo, int cantidadCaracteresMaximo, ConsoleColor colorTextoMensaje = ConsoleColor.White, ConsoleColor colorTextoValor = ConsoleColor.White, bool checkError = true)
+        {
+            string? value;
+            Console.ForegroundColor = colorTextoMensaje;
+            Console.Write(mensaje);
+            Console.ForegroundColor = colorTextoValor;
+            int fila = Console.CursorTop;
+            int columna = Console.CursorLeft;
+            while (true)
+            {
+                value = Console.ReadLine();
+                if (!checkError)
+                {
+                    return value ?? string.Empty;
+                }
+
+                if (value?.Length >= cantidadCaracteresMinimo && value?.Length <= cantidadCaracteresMaximo)
+                {
+                    return value;
+                }
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.SetCursorPosition(0, fila + 2);
+                Console.WriteLine($"Debe Ingresar entre {cantidadCaracteresMinimo} y {cantidadCaracteresMaximo} caracteres");
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("Presiona cualquier tecla para intentar nuevamente...");
+                Console.ReadKey();
+                int cantidadEspacios = Console.WindowWidth - columna;
+                Console.SetCursorPosition(columna, fila);
+                Console.Write(new string(' ', cantidadEspacios));
+                Console.SetCursorPosition(0, fila + 2);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(0, fila + 3);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.ResetColor();
+                Console.SetCursorPosition(columna, fila);
+            }
+        }
+
+        public static void EsperarTeclaFinal()
+        {
+            Console.SetCursorPosition(0, Console.CursorTop + 2);
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Programa Finalizado");
+            Console.WriteLine("Presione cualquier tecla para continuar");
+            Console.ResetColor();
+            Console.CursorVisible = false;
+            Console.ReadKey();
+            Console.CursorVisible = true;
+        }
+
+        public static void MostrarTitulo(string titulo, ConsoleColor colorTexto, int linea)
+        {
+            Console.Title = titulo;
+            Console.SetCursorPosition((Console.WindowWidth - titulo.Length) / 2, linea);
+            Console.ForegroundColor = colorTexto;
+            Console.Write(titulo);
+            Console.ResetColor();
+            Console.WriteLine();
+        }
+
+        public static void ProgramaEnConstruccion()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            MostrarTitulo("Programa en Construcción", ConsoleColor.Yellow, (Console.WindowHeight / 2) - 4);
+            MostrarTitulo("En breve sera puesto en funcionamiento", ConsoleColor.Yellow, (Console.WindowHeight / 2) - 2);
+            MostrarTitulo("Disculpe las molestias ocasionadas", ConsoleColor.Yellow, (Console.WindowHeight / 2));
+            MostrarTitulo("Presione Una Tecla Para Volver", ConsoleColor.Yellow, (Console.WindowHeight / 2) + 2);
+            MostrarTitulo(Program.VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Console.CursorVisible = false;
+            Console.ReadKey();
+            Console.CursorVisible = true;
+        }
+
+        public static void EsperarFinalSistema()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            MostrarTitulo("Sistema Finalizado.", ConsoleColor.DarkGreen, (Console.WindowHeight / 2) - 3);
+            MostrarTitulo("Gracias por su tiempo", ConsoleColor.DarkGreen, (Console.WindowHeight / 2) - 1);
+            MostrarTitulo("Presione cualquier tecla para salir", ConsoleColor.DarkGreen, (Console.WindowHeight / 2) + 1);
+            Console.CursorVisible = false;
+            Console.ForegroundColor = ConsoleColor.Black;
+        }
+    }
+}
