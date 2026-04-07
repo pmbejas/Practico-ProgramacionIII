@@ -132,8 +132,8 @@
                 MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight-1);
                 MostrarTitulo("Menú Principal", ConsoleColor.DarkBlue, 0);
                 Console.WriteLine();
-                Console.WriteLine("0. Program 00");
-                Console.WriteLine("1. Program 01"); 
+                Console.WriteLine("0. Program 00: Hola Mundo!!!");
+                Console.WriteLine("1. Program 01: Registro y Login de Usuario"); 
                 Console.WriteLine("2. Program 02");
                 Console.WriteLine("3. Program 03");
                 Console.WriteLine();

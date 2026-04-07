@@ -9,12 +9,16 @@ namespace Practico_ProgramacionIII
     {
         public static void Principal()
         {
+            string titulo = "Ejercicio 01 - Registro y Login de Usuario";
             Program.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
-            Program.MostrarTitulo("Ejercicio 01 - Login de Usuario", ConsoleColor.DarkBlue, 0);
+            Program.MostrarTitulo(titulo, ConsoleColor.DarkBlue, 0);
+            Console.WriteLine();
+            Console.WriteLine("Pimero gurdaremos sus datos");
+            Console.WriteLine("------ ---------- --- -----");
             Console.WriteLine();
             string user = Program.ReadString("Ingrese su nombre de usuario (4 a 20 caracteres): ", 4, 20, ConsoleColor.Yellow, ConsoleColor.White);
             string userPassword = Program.ReadString("Ingrese su contraseña (4 a 15 caracteres): ", 4, 15, ConsoleColor.Yellow, ConsoleColor.Black);
-            string nombreCompleto = Program.ReadString("Ingrese su nombre completo (4 a 50 caracteres): ", 4, 50, ConsoleColor.Yellow, ConsoleColor.White);
+            string nombreCompleto = Program.ReadString("Ingrese su nombre completo (4 a 40 caracteres): ", 4, 40, ConsoleColor.Yellow, ConsoleColor.White);
             Console.WriteLine();
             Console.ResetColor();
             Console.WriteLine("Por favor, recuerde los datos que acaba de ingresar...");
@@ -22,7 +26,7 @@ namespace Practico_ProgramacionIII
             Console.ReadKey();
             Console.Clear();
             Program.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
-            Program.MostrarTitulo("Ejercicio 01 - Login de Usuario", ConsoleColor.DarkBlue, 0);
+            Program.MostrarTitulo(titulo, ConsoleColor.DarkBlue, 0);
             Console.WriteLine();
             Console.WriteLine("+-------------------------------------------------+");
             Console.WriteLine("|     Ingrese sus datos para iniciar sesión       |");
