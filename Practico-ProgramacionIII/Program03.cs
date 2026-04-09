@@ -10,7 +10,7 @@ namespace Practico_ProgramacionIII
         public static void Principal()
         {
             Console.Clear();
-            Funciones.MostrarTitulo(Program.VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Funciones.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
             Funciones.MostrarTitulo("Tipo de Datos Float, Double y Decimal)", ConsoleColor.DarkBlue, 0);
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Blue;

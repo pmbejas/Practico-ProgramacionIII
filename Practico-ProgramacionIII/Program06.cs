@@ -12,33 +12,33 @@ namespace Practico_ProgramacionIII
         {
             
             Console.Clear();
-            Funciones.MostrarTitulo(Program.VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Funciones.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
             Funciones.MostrarTitulo("Constanstes", ConsoleColor.DarkBlue, 0);
             Console.WriteLine();
             Console.WriteLine();
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+            Console.ForegroundColor = VariablesGlobales.colorTextoTitulo;
             Console.Write("Ejercicio Nro. 1: ");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("Sistema de Suscripción Premium");
             Console.WriteLine();
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
         
             Console.WriteLine();
             Console.WriteLine("Crea constantes para:");
-            Funciones.TextoEnColor(" 1. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
+            Funciones.TextoEnColor(" 1. ", VariablesGlobales.colorTextoVineta, VariablesGlobales.colorTextoMensaje);
             Console.WriteLine("Nombre del servicio");
-            Funciones.TextoEnColor(" 2. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
+            Funciones.TextoEnColor(" 2. ", VariablesGlobales.colorTextoVineta, VariablesGlobales.colorTextoMensaje);
             Console.WriteLine("Precio mensual (decimal)");
-            Funciones.TextoEnColor(" 3. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
+            Funciones.TextoEnColor(" 3. ", VariablesGlobales.colorTextoVineta, VariablesGlobales.colorTextoMensaje);
             Console.WriteLine("Cantidad mínima de meses para suscribirse");
            
             Console.WriteLine();
             Console.WriteLine("Luego:");
-            Funciones.TextoEnColor(" a. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
+            Funciones.TextoEnColor(" a. ", VariablesGlobales.colorTextoVineta, VariablesGlobales.colorTextoMensaje);
             Console.WriteLine("Define un cliente con cierta cantidad de meses contratados");
-            Funciones.TextoEnColor(" b. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
+            Funciones.TextoEnColor(" b. ", VariablesGlobales.colorTextoVineta, VariablesGlobales.colorTextoMensaje);
             Console.WriteLine("Evalúa (en una constante booleana) si cumple el mínimo requerido");
-            Funciones.TextoEnColor(" c. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
+            Funciones.TextoEnColor(" c. ", VariablesGlobales.colorTextoVineta, VariablesGlobales.colorTextoMensaje);
             Console.WriteLine("Muestra toda la información por consola");
 
             const string NOMBRE_SERVICIO = "TradyOne Premium";
@@ -48,14 +48,14 @@ namespace Practico_ProgramacionIII
             bool cumpleMinimo = mesesContratados >= CANTIDAD_MINIMA_MESES;
 
             Console.WriteLine();
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+            Console.ForegroundColor = VariablesGlobales.colorTextoTitulo;
             Console.WriteLine("Ejecución:");
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
 
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("Declaracion de variables:");
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
 
             Console.WriteLine("   const string NOMBRE_SERVICIO = \"TradyOne Premium\";");
             Console.WriteLine("   const decimal PRECIO_MENSUAL = 19.99m;");
@@ -66,7 +66,7 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("Muestra de valores:");
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
 
             Console.WriteLine($"   Nombre del servicio: {NOMBRE_SERVICIO}");
             Console.WriteLine($"   Precio mensual: ${PRECIO_MENSUAL:F2}");
@@ -81,33 +81,33 @@ namespace Practico_ProgramacionIII
         {
             
             Console.Clear();
-            Funciones.MostrarTitulo(Program.VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Funciones.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
             Funciones.MostrarTitulo("Constanstes", ConsoleColor.DarkBlue, 0);
             Console.WriteLine();
             Console.WriteLine();
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+            Console.ForegroundColor = VariablesGlobales.colorTextoTitulo;
             Console.Write("Ejercicio Nro. 1: ");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("Control de compra online");
             Console.WriteLine();
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
         
             Console.WriteLine();
             Console.WriteLine("Define constantes para:");
-            Funciones.TextoEnColor(" 1. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
+            Funciones.TextoEnColor(" 1. ", VariablesGlobales.colorTextoVineta, VariablesGlobales.colorTextoMensaje);
             Console.WriteLine("Monto mínimo de compra");
-            Funciones.TextoEnColor(" 2. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
+            Funciones.TextoEnColor(" 2. ", VariablesGlobales.colorTextoVineta, VariablesGlobales.colorTextoMensaje);
             Console.WriteLine("Nombre de la tienda");
-            Funciones.TextoEnColor(" 3. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
+            Funciones.TextoEnColor(" 3. ", VariablesGlobales.colorTextoVineta, VariablesGlobales.colorTextoMensaje);
             Console.WriteLine("Porcentaje de descuento (ej: 10%)");
            
             Console.WriteLine();
             Console.WriteLine("Luego:");
-            Funciones.TextoEnColor(" a. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
+            Funciones.TextoEnColor(" a. ", VariablesGlobales.colorTextoVineta, VariablesGlobales.colorTextoMensaje);
             Console.WriteLine("Declara un monto de compra");
-            Funciones.TextoEnColor(" b. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
+            Funciones.TextoEnColor(" b. ", VariablesGlobales.colorTextoVineta, VariablesGlobales.colorTextoMensaje);
             Console.WriteLine("Calcula si aplica el descuento (bool)");
-            Funciones.TextoEnColor(" c. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
+            Funciones.TextoEnColor(" c. ", VariablesGlobales.colorTextoVineta, VariablesGlobales.colorTextoMensaje);
             Console.WriteLine("Muestra si el cliente recibe descuento y cuánto pagaría");
 
 
@@ -117,14 +117,14 @@ namespace Practico_ProgramacionIII
         {
             
             Console.Clear();
-            Funciones.MostrarTitulo(Program.VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Funciones.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
             Funciones.MostrarTitulo("Constanstes", ConsoleColor.DarkBlue, 0);
             Console.WriteLine();
             Console.WriteLine();
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+            Console.ForegroundColor = VariablesGlobales.colorTextoTitulo;
             Console.WriteLine("Ejercicio Nro. 3:");
             Console.WriteLine();
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
 
             Funciones.EsperarTeclaFinal();
         }
@@ -132,14 +132,14 @@ namespace Practico_ProgramacionIII
         {
             
             Console.Clear();
-            Funciones.MostrarTitulo(Program.VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Funciones.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
             Funciones.MostrarTitulo("Constanstes", ConsoleColor.DarkBlue, 0);
             Console.WriteLine();
             Console.WriteLine();
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+            Console.ForegroundColor = VariablesGlobales.colorTextoTitulo;
             Console.WriteLine("Ejercicio Nro. 4:");
             Console.WriteLine();
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
 
             Funciones.EsperarTeclaFinal();
         }
@@ -147,14 +147,14 @@ namespace Practico_ProgramacionIII
         {
             
             Console.Clear();
-            Funciones.MostrarTitulo(Program.VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Funciones.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
             Funciones.MostrarTitulo("Constanstes", ConsoleColor.DarkBlue, 0);
             Console.WriteLine();
             Console.WriteLine();
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+            Console.ForegroundColor = VariablesGlobales.colorTextoTitulo;
             Console.WriteLine("Ejercicio Nro. 5:");
             Console.WriteLine();
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
 
             Funciones.EsperarTeclaFinal();
         }
@@ -164,57 +164,57 @@ namespace Practico_ProgramacionIII
             while (opcionElegida != 0)
             {
                 Console.Clear();
-                Funciones.MostrarTitulo(Program.VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+                Funciones.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
                 Funciones.MostrarTitulo("Constanstes", ConsoleColor.DarkBlue, 0);
                 
                 Console.WriteLine();
-                Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+                Console.ForegroundColor = VariablesGlobales.colorTextoTitulo;
                 Console.WriteLine("Que son las constantes en C#");
                 Console.WriteLine("");
-                Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+                Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
                 Console.Write("En C#, una constante (");
-                Funciones.TextoEnColor("const", ConsoleColor.DarkCyan, Program.VariablesGlobales.colorTextoMensaje);
+                Funciones.TextoEnColor("const", ConsoleColor.DarkCyan, VariablesGlobales.colorTextoMensaje);
                 Console.WriteLine(") es un valor que se define en tiempo de compilación y no");
                 Console.WriteLine("puede cambiar durante la ejecución del programa. Es ideal para representar datos fijos");
                 Console.WriteLine("como configuraciones, límites, mensajes o reglas del sistema.");
 
                 Console.WriteLine();
-                Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+                Console.ForegroundColor = VariablesGlobales.colorTextoTitulo;
                 Console.WriteLine("Forma de declarar constantes en C#");
-                Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+                Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
                 Console.WriteLine("La sintaxis para declarar una constante en C# es la siguiente:");
                 Console.WriteLine();
-                Funciones.TextoEnColor("    const tipo_de_dato", ConsoleColor.DarkCyan, Program.VariablesGlobales.colorTextoMensaje);
+                Funciones.TextoEnColor("    const tipo_de_dato", ConsoleColor.DarkCyan, VariablesGlobales.colorTextoMensaje);
                 Console.Write(" NOMBRE_CONSTANTE = ");
-                Funciones.TextoEnColor("valor", ConsoleColor.DarkRed, Program.VariablesGlobales.colorTextoMensaje);
+                Funciones.TextoEnColor("valor", ConsoleColor.DarkRed, VariablesGlobales.colorTextoMensaje);
                 Console.WriteLine(";");
                 Console.WriteLine();
                 Console.Write("· Se declara con la palabra clave ");
-                Funciones.TextoEnColor("const\n", ConsoleColor.DarkCyan, Program.VariablesGlobales.colorTextoMensaje);
+                Funciones.TextoEnColor("const\n", ConsoleColor.DarkCyan, VariablesGlobales.colorTextoMensaje);
                 Console.WriteLine("· Debe inicializarse en el momento de su declaración.");
                 Console.WriteLine("· Su valor es inmutable (no se puede modificar después).");
                 Console.WriteLine("· Solo puede almacenar tipos simples o valores conocidos en compilación (como int, string, bool, etc.).");
                 Console.WriteLine("· No puede ser una expresión que se evalúe en tiempo de ejecución (como DateTime.Now).");
                 Console.WriteLine();
-                Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+                Console.ForegroundColor = VariablesGlobales.colorTextoTitulo;
                 Console.WriteLine("Ejemplos:");
-                Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+                Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
                 Console.WriteLine("· const double PI = 3.14159;\n");
                 Console.WriteLine("· const string MENSAJE_BIENVENIDA = \"¡Bienvenido al programa!\";\n");
                 Console.WriteLine("· const int MAX_USUARIOS = 100;\n");
                 Console.WriteLine("· const bool ES_ACTIVADO = true;\n");
                 Console.WriteLine();
-                Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+                Console.ForegroundColor = VariablesGlobales.colorTextoTitulo;
                 Console.WriteLine("Ejercitación:");
-                Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+                Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
         
                 Console.WriteLine("A continuación se presentan una serie de ejercicios para practicar");
                 Console.WriteLine("el uso de constantes.");
 
                 Console.WriteLine("\n");
-                Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+                Console.ForegroundColor = VariablesGlobales.colorTextoTitulo;
                 Console.WriteLine("Menu de Opciones:");
-                Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+                Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
                 Console.WriteLine();
                 Console.WriteLine("  1. Ejercicio 1: Sistema de Suscripción Premium");
                 Console.WriteLine("  2. Ejercicio 2: Control de compra online");

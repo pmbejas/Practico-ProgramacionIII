@@ -114,7 +114,7 @@ namespace Practico_ProgramacionIII
             MostrarTitulo("En breve sera puesto en funcionamiento", ConsoleColor.Yellow, (Console.WindowHeight / 2) - 2);
             MostrarTitulo("Disculpe las molestias ocasionadas", ConsoleColor.Yellow, (Console.WindowHeight / 2));
             MostrarTitulo("Presione Una Tecla Para Volver", ConsoleColor.Yellow, (Console.WindowHeight / 2) + 2);
-            MostrarTitulo(Program.VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
             Console.CursorVisible = false;
             Console.ReadKey();
             Console.CursorVisible = true;
@@ -166,16 +166,16 @@ namespace Practico_ProgramacionIII
             }
         }
     
-        public static int GenerarMenu(string[] listadoOpciones, string[] listadoOpcionesColor, int opcionInicial, int opcionSalir, int filaInicial, ConsoleColor colorVineta = ConsoleColor.White, ConsoleColor colorOpcionColor = ConsoleColor.White)
+        public static int GenerarMenu(OpcionMenu[] listadoOpciones, int filaInicial, ConsoleColor colorVineta = ConsoleColor.White, ConsoleColor colorOpcionColor = ConsoleColor.White)
         {
                 
-            int opcionElegida = opcionInicial;
+            int opcionElegida = 0;    
             Console.SetCursorPosition(0, filaInicial);
             for (int i = 0; i < listadoOpciones.Length; i++)
             {
-                Funciones.TextoEnColor($"  {i}. ", colorVineta, Program.VariablesGlobales.colorTextoMensaje);
-                Console.Write(listadoOpciones[i]);
-                Funciones.TextoEnColor($" {listadoOpcionesColor[i]}", colorOpcionColor, Program.VariablesGlobales.colorTextoMensaje);
+                Funciones.TextoEnColor($"  {listadoOpciones[i].Valor}. ", colorVineta, VariablesGlobales.colorTextoMensaje);
+                Console.Write(listadoOpciones[i].Titulo);
+                Funciones.TextoEnColor(listadoOpciones[i].TituloColor, colorOpcionColor, VariablesGlobales.colorTextoMensaje);
                 Console.WriteLine("\n");
             }
 
@@ -186,9 +186,9 @@ namespace Practico_ProgramacionIII
 
             Console.SetCursorPosition(0, filaInicial);
             Console.BackgroundColor = ConsoleColor.Gray;
-            Funciones.TextoEnColor($"  {opcionInicial}. ", colorVineta, Program.VariablesGlobales.colorTextoMensaje);
-            Console.Write(listadoOpciones[opcionInicial]);
-            Funciones.TextoEnColor($" {listadoOpcionesColor[opcionInicial]}. ", colorOpcionColor, Program.VariablesGlobales.colorTextoMensaje);
+            Funciones.TextoEnColor($"  {listadoOpciones[opcionElegida].Valor}. ", colorVineta, VariablesGlobales.colorTextoMensaje);
+            Console.Write(listadoOpciones[opcionElegida].Titulo);
+            Funciones.TextoEnColor(listadoOpciones[opcionElegida].TituloColor, colorOpcionColor, VariablesGlobales.colorTextoMensaje);
             
             
             while (true)
@@ -196,19 +196,19 @@ namespace Practico_ProgramacionIII
                 var keyPressed = Console.ReadKey(true);
                 if (keyPressed.Key == ConsoleKey.UpArrow)
                 {
-                    if (opcionElegida > opcionInicial)
+                    if (opcionElegida > 0)
                     {
                         Console.SetCursorPosition(0, filaInicial + (opcionElegida*2));
                         Console.BackgroundColor = ConsoleColor.Black;
-                        Funciones.TextoEnColor($"  {opcionElegida}. ", colorVineta, Program.VariablesGlobales.colorTextoMensaje);
-                        Console.Write(listadoOpciones[opcionElegida]);
-                        Funciones.TextoEnColor($" {listadoOpcionesColor[opcionElegida]}. ", colorOpcionColor, Program.VariablesGlobales.colorTextoMensaje);
+                        Funciones.TextoEnColor($"  {listadoOpciones[opcionElegida].Valor}. ", colorVineta, VariablesGlobales.colorTextoMensaje);
+                        Console.Write(listadoOpciones[opcionElegida].Titulo);
+                        Funciones.TextoEnColor($" {listadoOpciones[opcionElegida].TituloColor} ", colorOpcionColor, VariablesGlobales.colorTextoMensaje);
                         opcionElegida--;
                         Console.SetCursorPosition(0, filaInicial + (opcionElegida*2));
                         Console.BackgroundColor = ConsoleColor.Gray;
-                        Funciones.TextoEnColor($"  {opcionElegida}. ", colorVineta, Program.VariablesGlobales.colorTextoMensaje);
-                        Console.Write(listadoOpciones[opcionElegida]);
-                        Funciones.TextoEnColor($" {listadoOpcionesColor[opcionElegida]}. ", colorOpcionColor, Program.VariablesGlobales.colorTextoMensaje);
+                        Funciones.TextoEnColor($"  {listadoOpciones[opcionElegida].Valor}. ", colorVineta, VariablesGlobales.colorTextoMensaje);
+                        Console.Write(listadoOpciones[opcionElegida].Titulo);
+                        Funciones.TextoEnColor($" {listadoOpciones[opcionElegida].TituloColor} ", colorOpcionColor, VariablesGlobales.colorTextoMensaje);
                     }
                 }
                 else if (keyPressed.Key == ConsoleKey.DownArrow)
@@ -217,27 +217,27 @@ namespace Practico_ProgramacionIII
                     {
                         Console.SetCursorPosition(0, filaInicial + (opcionElegida * 2));
                         Console.BackgroundColor = ConsoleColor.Black;
-                        Funciones.TextoEnColor($"  {opcionElegida}. ", colorVineta, Program.VariablesGlobales.colorTextoMensaje);
-                        Console.Write(listadoOpciones[opcionElegida]);
-                        Funciones.TextoEnColor($" {listadoOpcionesColor[opcionElegida]}. ", colorOpcionColor, Program.VariablesGlobales.colorTextoMensaje);
+                        Funciones.TextoEnColor($"  {listadoOpciones[opcionElegida].Valor}. ", colorVineta, VariablesGlobales.colorTextoMensaje);
+                        Console.Write(listadoOpciones[opcionElegida].Titulo);
+                        Funciones.TextoEnColor($" {listadoOpciones[opcionElegida].TituloColor} ", colorOpcionColor, VariablesGlobales.colorTextoMensaje);
                         
                         opcionElegida++;
                         Console.SetCursorPosition(0, filaInicial + (opcionElegida*2));
                         Console.BackgroundColor = ConsoleColor.Gray;
-                        Funciones.TextoEnColor($"  {opcionElegida}. ", colorVineta, Program.VariablesGlobales.colorTextoMensaje);
-                        Console.Write(listadoOpciones[opcionElegida]);
-                        Funciones.TextoEnColor($" {listadoOpcionesColor[opcionElegida]}. ", colorOpcionColor, Program.VariablesGlobales.colorTextoMensaje);
+                        Funciones.TextoEnColor($"  {listadoOpciones[opcionElegida].Valor}. ", colorVineta, VariablesGlobales.colorTextoMensaje);
+                        Console.Write(listadoOpciones[opcionElegida].Titulo);
+                        Funciones.TextoEnColor($" {listadoOpciones[opcionElegida].TituloColor} ", colorOpcionColor, VariablesGlobales.colorTextoMensaje);
                     }
                 }
                 else if (keyPressed.Key == ConsoleKey.Enter)
                 {
                     Console.ResetColor();
-                    return opcionElegida;
+                    return listadoOpciones[opcionElegida].Valor;
                 }
                 else if (keyPressed.Key == ConsoleKey.Escape)
                 {
                     Console.ResetColor();
-                    return opcionSalir;
+                    return -1;
                 }
             }
         }
