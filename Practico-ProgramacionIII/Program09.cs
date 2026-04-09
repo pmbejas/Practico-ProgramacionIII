@@ -10,7 +10,7 @@ namespace Practico_ProgramacionIII
         public static void Principal()
         {
             string nombre = "Diego";
-            string? apellido = null;
+            // string? apellido = null;
 
             Console.WriteLine(nombre.Length); // ✅ OK
 
@@ -20,7 +20,7 @@ namespace Practico_ProgramacionIII
 
             Console.WriteLine("Fin ejemplo 1");
 
-            Console.ReadKey();
+            Funciones.ProgramaEnConstruccion();
         }
     }
 }

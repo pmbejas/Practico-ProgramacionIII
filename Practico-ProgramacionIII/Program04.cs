@@ -121,90 +121,24 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
             string nombreCompleto = "Pablo Bejas";
-            Console.Write("string nombreCompleto = \"Pablo Bejas\";");
-            Funciones.TextoEnColor($"// WriteLine(nombreCompleto) devuelve: {nombreCompleto}", ConsoleColor.DarkGreen, ConsoleColor.White);
+            Funciones.TextoEnColor("string", ConsoleColor.Cyan, Program.VariablesGlobales.colorTextoMensaje);
+            Console.Write(" nombreCompleto = ");
+            Funciones.TextoEnColor("\"Pablo Bejas\"", ConsoleColor.DarkRed, Program.VariablesGlobales.colorTextoMensaje);
+            Console.Write(";");
+            Funciones.TextoEnColor($" // WriteLine(nombreCompleto) devuelve: {nombreCompleto}", ConsoleColor.DarkGreen, ConsoleColor.White);
             Console.WriteLine();
-            Funciones.EsperarTeclaFinal();
             
-            Console.Clear();
             Console.WriteLine();
             Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
-            Console.WriteLine("Ejercicio:");
-            Console.WriteLine();
+            Console.WriteLine("Ejercitación:");
             Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
-            Console.WriteLine("1. Pide al usuario que ingrese su nombre completo y luego: \n");
-            Console.WriteLine("   a. muéstralo en pantalla.\n");
-            Console.WriteLine("   b. muestra cuántos caracteres tiene su nombre completo (sin contar espacios).\n");
-            Console.WriteLine("   c. muestra cuántas palabras tiene su nombre completo.\n");
-            Console.WriteLine("   d. muestra sus iniciales.\n");
-            Console.WriteLine("   e. muestra su nombre completo en mayúsculas y luego en minúsculas.\n");
-            Console.WriteLine("   f. muestra su nombre completo al revés.\n");
+            Console.WriteLine("A continuación se presenta un ejercicio para practicar el uso de variables string.");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine();
-            
-            string nombre = Funciones.ReadString("Ingrese su nombre: ", 3,30, ConsoleColor.White, ConsoleColor.DarkCyan, true).Trim();
+            Console.WriteLine("Presiona cualquier tecla para continuar con el ejercicio...");
+            Console.ReadKey();
 
-            int cantidadTotalCaracteres = 0;
-            int cantidadPalabras = nombre.Split(' ').Length;
-            string iniciales = nombre[0].ToString();
-            string nombreAlReves = "";
-   
-            for (int i = 0; i < nombre.Length; i++)
-            {
-                nombreAlReves += nombre[(nombre.Length-1) -i];
-                if (nombre[i] != ' ')
-                {
-                    cantidadTotalCaracteres++;
-                } else
-                {
-                    iniciales += nombre[i+1];
-                }
-            }
-            Console.WriteLine();
-            Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
-            Funciones.TextoEnColor(" a. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
-            Console.Write("Tu nombre completo es: ");
-            Funciones.TextoEnColor(nombreCompleto, ConsoleColor.DarkCyan, Program.VariablesGlobales.colorTextoMensaje);
-            Console.WriteLine();
-
-            Console.WriteLine();
-            Funciones.TextoEnColor(" b. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
-            Console.Write("Tu nombre completo tiene ");
-            Funciones.TextoEnColor(cantidadTotalCaracteres.ToString(), ConsoleColor.DarkCyan, Program.VariablesGlobales.colorTextoMensaje);
-            Console.Write(" caracteres (sin contar espacios).");
-            Console.WriteLine();
-
-            Console.WriteLine();
-            Funciones.TextoEnColor(" c. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
-            Console.Write("Tu nombre completo tiene ");
-            Funciones.TextoEnColor(cantidadPalabras.ToString(), ConsoleColor.DarkCyan, Program.VariablesGlobales.colorTextoMensaje);
-            Console.Write(" palabras.");
-            Console.WriteLine();
-            
-            Console.WriteLine();
-            Funciones.TextoEnColor(" d. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
-            Console.Write("Tus iniciales son: ");
-            Funciones.TextoEnColor(iniciales, ConsoleColor.DarkCyan, Program.VariablesGlobales.colorTextoMensaje);
-            Console.WriteLine();
-
-            Console.WriteLine();
-            Funciones.TextoEnColor(" e. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
-            Console.Write($"Tu nombre completo en mayúsculas es: ");
-            Funciones.TextoEnColor(nombre.ToUpper(), ConsoleColor.DarkCyan, Program.VariablesGlobales.colorTextoMensaje);
-            Console.WriteLine();
-
-            Console.WriteLine();
-            Funciones.TextoEnColor(" e. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
-            Console.Write($"Tu nombre completo en minúsculas es: ");
-            Funciones.TextoEnColor(nombre.ToLower(), ConsoleColor.DarkCyan, Program.VariablesGlobales.colorTextoMensaje);
-            Console.WriteLine();
-
-            Console.WriteLine();
-            Funciones.TextoEnColor(" f. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
-            Console.Write($"Tu nombre completo al revés es: ");
-            Funciones.TextoEnColor(nombreAlReves, ConsoleColor.DarkCyan, Program.VariablesGlobales.colorTextoMensaje);
-            Console.WriteLine();
-
-            Funciones.EsperarTeclaFinal();
+            Ejercicio1();
 
         }
     }

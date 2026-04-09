@@ -25,7 +25,7 @@ namespace Practico_ProgramacionIII
             var total = x + (int)y + suma;
             Console.WriteLine($"total = {total}");
 
-            Console.ReadKey();
+            Funciones.ProgramaEnConstruccion();
         }
     }
 }

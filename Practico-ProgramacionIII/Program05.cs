@@ -127,6 +127,19 @@ namespace Practico_ProgramacionIII
             Console.WriteLine("    El número debe ser mayor que 10 Y menor que 50.");
             Console.WriteLine("    Mostrá el resultado como booleano.");   
             
+            Console.WriteLine();
+            Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+            Console.WriteLine("Ejecución:");
+            Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+            Console.WriteLine();
+            
+            int numeroIngresado = Funciones.ReadInteger("Ingrese un número entero: ", Program.VariablesGlobales.colorTextoMensaje);
+            
+            bool estaDentroDelRango = numeroIngresado > 10 && numeroIngresado < 50;
+            
+            Console.WriteLine();
+            Console.Write("El número está dentro del rango válido: ");
+            Funciones.TextoEnColor(estaDentroDelRango.ToString(), estaDentroDelRango ? ConsoleColor.DarkGreen : ConsoleColor.DarkRed, Program.VariablesGlobales.colorTextoMensaje);
             Funciones.EsperarTeclaFinal();
         }
 
@@ -149,6 +162,21 @@ namespace Practico_ProgramacionIII
             Console.WriteLine("    Solo puede entrar si es mayor o igual a 18 Y tiene documento.");
             Console.WriteLine("    Mostrá el resultado como true o false.");  
 
+            Console.WriteLine();
+            Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+            Console.WriteLine("Ejecución:");
+            Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+            Console.WriteLine();
+
+            int edad = Funciones.ReadInteger("Ingrese su edad: ", Program.VariablesGlobales.colorTextoMensaje);
+            string tieneDocumento = Funciones.ReadString("¿Tiene documento? (si/no): ", 1, 3, Program.VariablesGlobales.colorTextoMensaje, ConsoleColor.DarkCyan, false);
+            bool respuestaDocumento = tieneDocumento.ToUpper() == "SI" || tieneDocumento.ToUpper() == "S" || tieneDocumento.ToUpper() == "YES" || tieneDocumento.ToUpper() == "Y";
+
+            bool puedeIngresar = edad >= 18 && respuestaDocumento;
+
+            Console.WriteLine();
+            Console.Write("Puede ingresar al evento: ");
+            Funciones.TextoEnColor(puedeIngresar.ToString(), puedeIngresar ? ConsoleColor.DarkGreen : ConsoleColor.DarkRed, Program.VariablesGlobales.colorTextoMensaje);
             Funciones.EsperarTeclaFinal();
         }
 
@@ -170,6 +198,22 @@ namespace Practico_ProgramacionIII
             Console.WriteLine("    Puede verla si es mayor o igual a 16 O está acompañado.");
             Console.WriteLine("    Mostrá el resultado como true o false.");  
             
+                        Console.WriteLine();
+            Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+            Console.WriteLine("Ejecución:");
+            Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+            Console.WriteLine();
+
+            int edad = Funciones.ReadInteger("Ingrese su edad: ", Program.VariablesGlobales.colorTextoMensaje);
+            string estaAcompanado = Funciones.ReadString("¿Está acompañado por un adulto? (si/no): ", 1, 3, Program.VariablesGlobales.colorTextoMensaje, ConsoleColor.DarkCyan, false);
+            bool respuestaAcompanado = estaAcompanado.ToUpper() == "SI" || estaAcompanado.ToUpper() == "S" || estaAcompanado.ToUpper() == "YES" || estaAcompanado.ToUpper() == "Y";
+
+            bool puedeVerPelicula = edad >= 16 || respuestaAcompanado;
+
+            Console.WriteLine();
+            Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+            Console.Write("Puede ver la película: ");
+            Funciones.TextoEnColor(puedeVerPelicula.ToString(), puedeVerPelicula ? ConsoleColor.DarkGreen : ConsoleColor.DarkRed, Program.VariablesGlobales.colorTextoMensaje);
             Funciones.EsperarTeclaFinal();
         }
 
@@ -183,6 +227,32 @@ namespace Practico_ProgramacionIII
                 Console.Clear();
                 Funciones.MostrarTitulo(Program.VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight-1);
                 Funciones.MostrarTitulo("Tipo de Datos BOOLEAN", ConsoleColor.DarkBlue, 0);
+
+                Console.WriteLine();
+                Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+                Console.WriteLine("Que son BOOLEANOS en C#");
+                Console.WriteLine("");
+                Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+                Console.WriteLine("El tipo de dato bool se utiliza para almacenar valores de verdad (true o false).");
+                Console.WriteLine("Comunmente se utiliza para representar condiciones, estados o resultados de comparaciones.");
+                
+                Console.WriteLine();
+                Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+                Console.WriteLine("Forma de Uso");
+                Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+                Console.WriteLine("Para declarar una variable de este tipo, al igual que con cualquier otro tipo de dato, simplemente usas");
+                Console.Write("la palabra clave ");
+                Funciones.TextoEnColor("bool", ConsoleColor.Cyan, ConsoleColor.White);
+                Console.WriteLine(" seguida del nombre que quieras darle a la variable.");
+                Console.WriteLine();
+
+                Console.WriteLine();
+                Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
+                Console.WriteLine("Ejercitación:");
+                Console.ForegroundColor = Program.VariablesGlobales.colorTextoMensaje;
+                Console.WriteLine("A continuación se presentan una serie de ejercicios para practicar");
+                Console.WriteLine("el uso de variables booleanas y operadores lógicos.");
+
                 Console.WriteLine("\n");
                 Console.ForegroundColor = Program.VariablesGlobales.colorTextoTitulo;
                 Console.WriteLine("Menu de Opciones:");
@@ -193,9 +263,8 @@ namespace Practico_ProgramacionIII
                 Console.WriteLine("  3. Ejercicio 3");
                 Console.WriteLine("  4. Ejercicio 4");
                 Console.WriteLine("  5. Ejercicio 5");
-                Console.WriteLine();
                 Console.ForegroundColor= ConsoleColor.DarkYellow;
-                Console.WriteLine("0. Salir");
+                Console.WriteLine("  0. Salir");
                 Console.WriteLine();
                 opcionElegida = Funciones.ReadInteger("Ejercicio a ejecutar?: ", ConsoleColor.DarkGreen);
 
@@ -218,10 +287,6 @@ namespace Practico_ProgramacionIII
 
                     ejercicioAEjecutar();
             }
-            Funciones.EsperarTeclaFinal();
-
-
-
         }
     }
 }

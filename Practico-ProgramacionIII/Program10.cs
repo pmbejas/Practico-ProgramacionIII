@@ -17,7 +17,8 @@ namespace Practico_ProgramacionIII
 
             Console.WriteLine("Fin ejemplo 3");
 
-            Console.ReadKey();
+            Funciones.ProgramaEnConstruccion();
+
         }
     }
 }

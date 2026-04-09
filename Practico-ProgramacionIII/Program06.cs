@@ -30,7 +30,7 @@ namespace Practico_ProgramacionIII
             Console.WriteLine("Constante NOMBRE_APP = " + NOMBRE_APP);
             Console.WriteLine("Constante VERSION = " + VERSION);
 
-            Console.ReadKey();
+            Funciones.ProgramaEnConstruccion();
         }
     }
 }

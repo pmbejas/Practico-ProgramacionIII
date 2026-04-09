@@ -26,7 +26,7 @@ namespace Practico_ProgramacionIII
             Console.WriteLine("IVA (" + (TASA_IVA * 100) + "%): " + SIMBOLO_PESO + impuestoCalculado);
             Console.WriteLine("TOTAL A PAGAR: " + SIMBOLO_PESO + total);
 
-            Console.ReadKey();
+            Funciones.ProgramaEnConstruccion();
         }
     }
 }
