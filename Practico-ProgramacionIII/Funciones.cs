@@ -13,6 +13,7 @@ namespace Practico_ProgramacionIII
             Console.Write(texto);
             Console.ForegroundColor = colorOriginal;
         }
+        
         public static int ReadInteger(string mensaje, ConsoleColor colorTexto)
         {
             int value;
@@ -128,6 +129,41 @@ namespace Practico_ProgramacionIII
             MostrarTitulo("Presione cualquier tecla para salir", ConsoleColor.DarkGreen, (Console.WindowHeight / 2) + 1);
             Console.CursorVisible = false;
             Console.ForegroundColor = ConsoleColor.Black;
+        }
+
+        public static string ReadPassword(string mensaje, ConsoleColor colorTextoMensaje = ConsoleColor.White, ConsoleColor colorTextoValor = ConsoleColor.White)
+        {
+            StringBuilder password = new StringBuilder();
+            Console.ForegroundColor = colorTextoMensaje;
+            Console.Write(mensaje);
+            Console.ForegroundColor = colorTextoValor;
+
+            const char caracterMask = '·';
+            int fila = Console.CursorTop;
+            int columna = Console.CursorLeft;
+            while (true)
+            {
+                var keyPressed = Console.ReadKey(true);
+                if (keyPressed.Key == ConsoleKey.Enter)
+                {
+                    return password.ToString();
+                }
+                else if (keyPressed.Key == ConsoleKey.Backspace)
+                {
+                    if (password.Length > 0)
+                    {
+                        password.Remove(password.Length - 1, 1);
+                        Console.SetCursorPosition(columna + password.Length, fila);
+                        Console.Write(" ");
+                        Console.SetCursorPosition(columna + password.Length, fila);
+                    }
+                }
+                else if (keyPressed.KeyChar >= 32 && keyPressed.KeyChar <= 126)
+                {
+                    password.Append(keyPressed.KeyChar);
+                    Console.Write(caracterMask);
+                }
+            }
         }
     }
 }

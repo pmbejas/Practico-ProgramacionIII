@@ -8,6 +8,7 @@
             public static ConsoleColor colorTextoMensaje = ConsoleColor.White;
             public static ConsoleColor colorTextoTitulo = ConsoleColor.DarkYellow;
             public static ConsoleColor colorTextoVineta = ConsoleColor.DarkRed;
+            public static ConsoleColor colorTextoMenu = ConsoleColor.DarkCyan;
         }
 
         static void Main(string[] args)
@@ -29,17 +30,41 @@
                 Console.Write(tituloMenu);
                 Console.ForegroundColor= Program.VariablesGlobales.colorTextoMensaje;
                 Console.SetCursorPosition(0, 5);
-                Console.WriteLine("  0. Program 00: Hola Mundo!!!\n");
-                Console.WriteLine("  1. Program 01: Registro y Login de Usuario\n"); 
-                Console.WriteLine("  2. Program 02: Tipos de Datos: int (Entero)\n");
-                Console.WriteLine("  3. Program 03: Tipos de Datos: float, double y decimal\n");
-                Console.WriteLine("  4. Program 04: Tipos de Datos: string (Cadena de Caracteres)\n");
-                Console.WriteLine("  5. Program 05: Tipos de Datos: bool (Booleano)\n");
-                Console.WriteLine("  6. Program 06: (En Construccion...)\n");
-                Console.WriteLine("  7. Program 07: (En Construccion...)\n");
-                Console.WriteLine("  8. Program 08: (En Construccion...)\n");
-                Console.WriteLine("  9. Program 09: (En Construccion...)\n");
-                Console.WriteLine("  10. Program 10:(En Construccion...)\n");
+                
+                //Funciones.TextoEnColor("  0. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
+                Console.Write("  0. Program 00: ");
+                Funciones.TextoEnColor("Hola Mundo!!!\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
+                
+                Console.Write("  1. Program 01: "); 
+                Funciones.TextoEnColor("Registro y Login de Usuario\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
+
+                Console.Write("  2. Program 02: ");
+                Funciones.TextoEnColor("Tipos de Datos: int (Entero)\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
+
+                Console.Write("  3. Program 03: ");
+                Funciones.TextoEnColor("Tipos de Datos: float, double y decimal\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
+
+                Console.Write("  4. Program 04: ");
+                Funciones.TextoEnColor("Tipos de Datos: string (Cadena de Caracteres)\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
+
+                Console.Write("  5. Program 05: ");
+                Funciones.TextoEnColor("Tipos de Datos: bool (Booleano)\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
+
+                Console.Write("  6. Program 06: ");
+                Funciones.TextoEnColor("Constantes\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
+
+                Console.Write("  7. Program 07: ");
+                Funciones.TextoEnColor("(En Construccion...)\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
+
+                Console.Write("  8. Program 08: ");
+                Funciones.TextoEnColor("(En Construccion...)\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
+
+                Console.Write("  9. Program 09: ");
+                Funciones.TextoEnColor("(En Construccion...)\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
+
+                Console.Write("  10. Program 10: ");
+                Funciones.TextoEnColor("(En Construccion...)\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
+
                 Console.ForegroundColor= ConsoleColor.DarkYellow;
                 Console.WriteLine("  99. Salir");
                 Console.WriteLine();

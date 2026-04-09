@@ -49,7 +49,7 @@ namespace Practico_ProgramacionIII
             Console.SetCursorPosition(6, 19);
             string userIngresado = Funciones.ReadString("Usuario: ", 1, 25, Program.VariablesGlobales.colorTextoMensaje, ConsoleColor.DarkCyan, false);
             Console.SetCursorPosition(6, 21);
-            string userPasswordIngresado = Funciones.ReadString("Contraseña: ", 1, 25, Program.VariablesGlobales.colorTextoMensaje, ConsoleColor.DarkCyan, false);
+            string userPasswordIngresado = Funciones.ReadPassword("Contraseña: ", Program.VariablesGlobales.colorTextoMensaje, ConsoleColor.DarkCyan);
 
             bool usuarioEsCorrecto = userIngresado == usuarioCorrecto;
             bool contrasenaEsCorrecta = userPasswordIngresado == contrasenaCorrecta;
@@ -285,7 +285,7 @@ namespace Practico_ProgramacionIII
                         }
                 };
 
-                    ejercicioAEjecutar();
+                ejercicioAEjecutar();
             }
         }
     }

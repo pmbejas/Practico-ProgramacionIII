@@ -17,7 +17,7 @@ namespace Practico_ProgramacionIII
             Console.WriteLine("------ ---------- --- -----");
             Console.WriteLine();
             string user = Funciones.ReadString("Ingrese su nombre de usuario (4 a 20 caracteres): ", 4, 20, ConsoleColor.Yellow, ConsoleColor.White);
-            string userPassword = Funciones.ReadString("Ingrese su contraseña (4 a 15 caracteres): ", 4, 15, ConsoleColor.Yellow, ConsoleColor.Black);
+            string userPassword = Funciones.ReadString("Ingrese su contraseña (4 a 15 caracteres): ", 4, 15, ConsoleColor.Yellow, ConsoleColor.White);
             string nombreCompleto = Funciones.ReadString("Ingrese su nombre completo (4 a 40 caracteres): ", 4, 40, ConsoleColor.Yellow, ConsoleColor.White);
             Console.WriteLine();
             Console.ResetColor();
@@ -40,7 +40,7 @@ namespace Practico_ProgramacionIII
             Console.SetCursorPosition(6, 6);
             string userIntented = Funciones.ReadString("Usuario: ", 1, 25, ConsoleColor.Yellow, ConsoleColor.White, false);
             Console.SetCursorPosition(6, 8);
-            string userPasswordIntented = Funciones.ReadString("Contraseña: ", 1, 25, ConsoleColor.Yellow, ConsoleColor.Black, false);
+            string userPasswordIntented = Funciones.ReadPassword("Contraseña: ", ConsoleColor.Yellow, ConsoleColor.White);
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             if (userIntented == user && userPasswordIntented == userPassword )
             {
