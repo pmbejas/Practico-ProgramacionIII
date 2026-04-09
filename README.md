@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+[README.md](https://github.com/user-attachments/files/26586658/README.md)
+>>>>>>> c180e46e55db9fee0fcb35f4c82163c644c36d2e
 # 📘 Práctico - Programación III
 
 > **Materia:** Programación III (Práctica)  
