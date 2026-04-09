@@ -31,44 +31,30 @@
                 Console.ForegroundColor= Program.VariablesGlobales.colorTextoMensaje;
                 Console.SetCursorPosition(0, 5);
                 
-                //Funciones.TextoEnColor("  0. ", Program.VariablesGlobales.colorTextoVineta, Program.VariablesGlobales.colorTextoMensaje);
-                Console.Write("  0. Program 00: ");
-                Funciones.TextoEnColor("Hola Mundo!!!\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
+                string [] opciones = new string[]
+                {
+                    "Program 00: ", "Program 01: ", "Program 02: ", "Program 03: ",
+                    "Program 04: ", "Program 05: ", "Program 06: ", "Program 07: ",
+                    "Program 08: ", "Program 09: ", "Program 10: "
+                };
+
+                string [] opcionesColor = new string[]
+                {
+                    "Hola Mundo!!!",
+                    "Registro y Login de Usuario",
+                    "Tipos de Datos: int (Entero)",
+                    "Tipos de Datos: float, double y decimal",
+                    "Tipos de Datos: string (Cadena de Caracteres)",
+                    "Tipos de Datos: bool (Booleano)",
+                    "Constantes",
+                    "(En Construccion...)",
+                    "(En Construccion...)",
+                    "(En Construccion...)",
+                    "(En Construccion...)"
+                };
                 
-                Console.Write("  1. Program 01: "); 
-                Funciones.TextoEnColor("Registro y Login de Usuario\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
-
-                Console.Write("  2. Program 02: ");
-                Funciones.TextoEnColor("Tipos de Datos: int (Entero)\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
-
-                Console.Write("  3. Program 03: ");
-                Funciones.TextoEnColor("Tipos de Datos: float, double y decimal\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
-
-                Console.Write("  4. Program 04: ");
-                Funciones.TextoEnColor("Tipos de Datos: string (Cadena de Caracteres)\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
-
-                Console.Write("  5. Program 05: ");
-                Funciones.TextoEnColor("Tipos de Datos: bool (Booleano)\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
-
-                Console.Write("  6. Program 06: ");
-                Funciones.TextoEnColor("Constantes\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
-
-                Console.Write("  7. Program 07: ");
-                Funciones.TextoEnColor("(En Construccion...)\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
-
-                Console.Write("  8. Program 08: ");
-                Funciones.TextoEnColor("(En Construccion...)\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
-
-                Console.Write("  9. Program 09: ");
-                Funciones.TextoEnColor("(En Construccion...)\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
-
-                Console.Write("  10. Program 10: ");
-                Funciones.TextoEnColor("(En Construccion...)\n\n", Program.VariablesGlobales.colorTextoMenu, Program.VariablesGlobales.colorTextoMensaje);
-
-                Console.ForegroundColor= ConsoleColor.DarkYellow;
-                Console.WriteLine("  99. Salir");
-                Console.WriteLine();
-                opcionElegida = Funciones.ReadInteger("Ingrese el número del programa a ejecutar: ", ConsoleColor.DarkGreen);
+                opcionElegida = Funciones.GenerarMenu(opciones, opcionesColor, 0, 99, 5, ConsoleColor.DarkYellow, ConsoleColor.DarkCyan);
+                
                 Dictionary<int, Action> programas = new Dictionary<int, Action>
                 {
                     { 0, Program00.Principal },

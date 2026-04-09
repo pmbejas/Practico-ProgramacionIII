@@ -165,5 +165,81 @@ namespace Practico_ProgramacionIII
                 }
             }
         }
+    
+        public static int GenerarMenu(string[] listadoOpciones, string[] listadoOpcionesColor, int opcionInicial, int opcionSalir, int filaInicial, ConsoleColor colorVineta = ConsoleColor.White, ConsoleColor colorOpcionColor = ConsoleColor.White)
+        {
+                
+            int opcionElegida = opcionInicial;
+            Console.SetCursorPosition(0, filaInicial);
+            for (int i = 0; i < listadoOpciones.Length; i++)
+            {
+                Funciones.TextoEnColor($"  {i}. ", colorVineta, Program.VariablesGlobales.colorTextoMensaje);
+                Console.Write(listadoOpciones[i]);
+                Funciones.TextoEnColor($" {listadoOpcionesColor[i]}", colorOpcionColor, Program.VariablesGlobales.colorTextoMensaje);
+                Console.WriteLine("\n");
+            }
+
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("  Presione ↑ o ↓ para navegar por las opciones y Enter para seleccionar\n");
+            Console.WriteLine("  Presione Esc para salir del sistema");
+
+
+            Console.SetCursorPosition(0, filaInicial);
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Funciones.TextoEnColor($"  {opcionInicial}. ", colorVineta, Program.VariablesGlobales.colorTextoMensaje);
+            Console.Write(listadoOpciones[opcionInicial]);
+            Funciones.TextoEnColor($" {listadoOpcionesColor[opcionInicial]}. ", colorOpcionColor, Program.VariablesGlobales.colorTextoMensaje);
+            
+            
+            while (true)
+            {
+                var keyPressed = Console.ReadKey(true);
+                if (keyPressed.Key == ConsoleKey.UpArrow)
+                {
+                    if (opcionElegida > opcionInicial)
+                    {
+                        Console.SetCursorPosition(0, filaInicial + (opcionElegida*2));
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Funciones.TextoEnColor($"  {opcionElegida}. ", colorVineta, Program.VariablesGlobales.colorTextoMensaje);
+                        Console.Write(listadoOpciones[opcionElegida]);
+                        Funciones.TextoEnColor($" {listadoOpcionesColor[opcionElegida]}. ", colorOpcionColor, Program.VariablesGlobales.colorTextoMensaje);
+                        opcionElegida--;
+                        Console.SetCursorPosition(0, filaInicial + (opcionElegida*2));
+                        Console.BackgroundColor = ConsoleColor.Gray;
+                        Funciones.TextoEnColor($"  {opcionElegida}. ", colorVineta, Program.VariablesGlobales.colorTextoMensaje);
+                        Console.Write(listadoOpciones[opcionElegida]);
+                        Funciones.TextoEnColor($" {listadoOpcionesColor[opcionElegida]}. ", colorOpcionColor, Program.VariablesGlobales.colorTextoMensaje);
+                    }
+                }
+                else if (keyPressed.Key == ConsoleKey.DownArrow)
+                {
+                    if (opcionElegida < listadoOpciones.Length - 1)
+                    {
+                        Console.SetCursorPosition(0, filaInicial + (opcionElegida * 2));
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Funciones.TextoEnColor($"  {opcionElegida}. ", colorVineta, Program.VariablesGlobales.colorTextoMensaje);
+                        Console.Write(listadoOpciones[opcionElegida]);
+                        Funciones.TextoEnColor($" {listadoOpcionesColor[opcionElegida]}. ", colorOpcionColor, Program.VariablesGlobales.colorTextoMensaje);
+                        
+                        opcionElegida++;
+                        Console.SetCursorPosition(0, filaInicial + (opcionElegida*2));
+                        Console.BackgroundColor = ConsoleColor.Gray;
+                        Funciones.TextoEnColor($"  {opcionElegida}. ", colorVineta, Program.VariablesGlobales.colorTextoMensaje);
+                        Console.Write(listadoOpciones[opcionElegida]);
+                        Funciones.TextoEnColor($" {listadoOpcionesColor[opcionElegida]}. ", colorOpcionColor, Program.VariablesGlobales.colorTextoMensaje);
+                    }
+                }
+                else if (keyPressed.Key == ConsoleKey.Enter)
+                {
+                    Console.ResetColor();
+                    return opcionElegida;
+                }
+                else if (keyPressed.Key == ConsoleKey.Escape)
+                {
+                    Console.ResetColor();
+                    return opcionSalir;
+                }
+            }
+        }
     }
 }
