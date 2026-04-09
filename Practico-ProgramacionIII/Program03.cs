@@ -11,7 +11,7 @@ namespace Practico_ProgramacionIII
         {
             Console.Clear();
             Funciones.MostrarTitulo(Program.VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
-            Funciones.MostrarTitulo("Ejercicio 04 - Tipo de Datos Float, Double y Decimal)", ConsoleColor.DarkBlue, 0);
+            Funciones.MostrarTitulo("Tipo de Datos Float, Double y Decimal)", ConsoleColor.DarkBlue, 0);
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Que son FLOAT, DECIMAL y DOUBLE en C#");

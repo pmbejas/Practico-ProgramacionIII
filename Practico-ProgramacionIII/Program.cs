@@ -5,6 +5,9 @@
         public static class VariablesGlobales
         {
             public static string pieDePagina = "Programación III (Práctica) - Profesor: Rodrigo Esper - Alumno: Pablo Bejas";
+            public static ConsoleColor colorTextoMensaje = ConsoleColor.White;
+            public static ConsoleColor colorTextoTitulo = ConsoleColor.DarkBlue;
+            public static ConsoleColor colorTextoVineta = ConsoleColor.DarkRed;
         }
 
         static void Main(string[] args)
@@ -21,6 +24,12 @@
                 Console.WriteLine("2. Program 02: Tipos de Datos: int (Entero)");
                 Console.WriteLine("3. Program 03: Tipos de Datos: float, double y decimal");
                 Console.WriteLine("4. Program 04: Tipos de Datos: string (Cadena de Caracteres)");
+                Console.WriteLine("5. Program 05: ");
+                Console.WriteLine("6. Program 06: ");
+                Console.WriteLine("7. Program 07: ");
+                Console.WriteLine("8. Program 08: ");
+                Console.WriteLine("9. Program 09: ");
+                Console.WriteLine("10. Program 10:");
                 Console.WriteLine();
                 Console.ForegroundColor= ConsoleColor.DarkYellow;
                 Console.WriteLine("99. Salir");
@@ -32,7 +41,13 @@
                     { 1, Program01.Principal },
                     { 2, Program02.Principal },
                     { 3, Program03.Principal },
-                    { 4, Program04.Principal }
+                    { 4, Program04.Principal },
+                    { 5, Program05.Principal },
+                    { 6, Program06.Principal },
+                    { 7, Program07.Principal },
+                    { 8, Program08.Principal },
+                    { 9, Program09.Principal },
+                    { 10, Program10.Principal }
                 };
 
                 if (programas.TryGetValue(opcionElegida, out Action? ejecutar))
