@@ -9,24 +9,52 @@ namespace Practico_ProgramacionIII
     {
         public static void Principal()
         {
-            // --- CONSTANTES DE CÁLCULO Y CONTROL ---
-            const decimal TASA_IVA = 0.21m; // 21% fijo
-            const bool MODO_PRUEBA = false; // Control de seguridad
-            const char SIMBOLO_PESO = '$';
+      
+            Console.Clear();
+            Funciones.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Funciones.MostrarTitulo("Constanstes de Cálculo y de Control", ConsoleColor.DarkBlue, 0);
+            
+            Console.WriteLine();
+            Console.ForegroundColor = VariablesGlobales.colorTextoTitulo;
+            Console.WriteLine("Constantes de cálculo y control en C#");
+            Console.WriteLine();
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
+            Console.WriteLine("En el contexto de un sistema como un módulo de facturación, las constantes cumplen un rol");
+            Console.WriteLine("fundamental porque permiten centralizar valores que:");
+            Console.WriteLine("· No cambian nunca (como una tasa de impuesto fija)");
+            Console.WriteLine("· Controlan el comportamiento del sistema (como un modo de prueba)");
+            Console.WriteLine("· Representan símbolos o configuraciones globales");
 
-            Console.WriteLine("--- MÓDULO DE FACTURACIÓN ---");
-            Console.WriteLine("Modo prueba activo: " + MODO_PRUEBA);
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("Constantes de cálculo:");
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
+            Console.WriteLine("Son aquellas que intervienen directamente en operaciones matemáticas.");
+            Console.WriteLine("  · const decimal TASA_IVA = 0.21m;");
+            //Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("Si el valor del IVA cambia en el futuro, solo hay que modificarlo en un único lugar.");
+            
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("Constantes de control:");
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
+            Console.WriteLine("Sirven para definir el comportamiento del sistema. Por ejemplo:");
+            Console.WriteLine("  · const bool MODO_PRUEBA = false;");
+            //Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("Esta constante puede utilizarse para activar o desactivar funcionalidades,"); 
+            Console.WriteLine("como logs, validaciones o simulaciones.");
 
-            decimal precioBase = 1500.50m;
-            decimal impuestoCalculado = precioBase * TASA_IVA;
-            decimal total = precioBase + impuestoCalculado;
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("Constantes de representación:");
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
+            Console.WriteLine("También se usan para definir valores simbólicos, como caracteres:");
+            Console.WriteLine("  · const char SIMBOLO_PESO = '$';");
+            //Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("Esto mejora la legibilidad y evita repetir “valores mágicos” en el código.");         
+            Console.WriteLine();
 
-            Console.WriteLine("\nDetalle de la compra:");
-            Console.WriteLine("Precio: " + SIMBOLO_PESO + precioBase);
-            Console.WriteLine("IVA (" + (TASA_IVA * 100) + "%): " + SIMBOLO_PESO + impuestoCalculado);
-            Console.WriteLine("TOTAL A PAGAR: " + SIMBOLO_PESO + total);
-
-            Funciones.ProgramaEnConstruccion();
+            Funciones.EsperarTeclaFinal();
         }
     }
 }

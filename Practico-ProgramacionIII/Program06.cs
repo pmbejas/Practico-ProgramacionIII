@@ -110,7 +110,60 @@ namespace Practico_ProgramacionIII
             Funciones.TextoEnColor(" c. ", VariablesGlobales.colorTextoVineta, VariablesGlobales.colorTextoMensaje);
             Console.WriteLine("Muestra si el cliente recibe descuento y cuánto pagaría");
 
+            const decimal MONTO_MINIMO_COMPRA = 150.00m;
+            const string NOMBRE_TIENDA = "TradyOne Store";
+            const decimal PORCENTAJE_DESCUENTO = 0.10m;
 
+            decimal montoCompra = 120.00m;
+            bool correspondeDescuento = montoCompra >= MONTO_MINIMO_COMPRA;
+            
+            Console.WriteLine();
+            Console.ForegroundColor = VariablesGlobales.colorTextoTitulo;
+            Console.WriteLine("Ejecución:");
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
+            Console.WriteLine();
+
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Declaracion de constantes:");
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
+            Console.WriteLine($"  const decimal MONTO_MINIMO_COMPRA = ${MONTO_MINIMO_COMPRA:F2}m;");
+            Console.WriteLine("  const string NOMBRE_TIENDA = \"TradyOne Store\";");
+            Console.WriteLine("  const decimal PORCENTAJE_DESCUENTO = 0.10m;");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Declaracion de variables:");
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
+            Console.WriteLine($"decimal montoCompra = ${montoCompra:F2}m;");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Resultado:");
+            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
+            int fila = Console.CursorTop;
+            const string tituloMenuLinea1 = "+-------------------------------------------------------+";
+            const string tituloMenuLinea2 = "|                                                       |";
+            const string tituloMenuLinea3 = "+-------------------------------------------------------+";
+            Funciones.MostrarTitulo(tituloMenuLinea1, ConsoleColor.DarkCyan, fila+1);
+            Funciones.MostrarTitulo(tituloMenuLinea2, ConsoleColor.DarkCyan, fila+2);
+            Funciones.MostrarTitulo(tituloMenuLinea3, ConsoleColor.DarkCyan, fila+3);
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.SetCursorPosition((Console.WindowWidth - NOMBRE_TIENDA.Length) / 2, fila+2);
+            Console.Write(NOMBRE_TIENDA);
+            Console.ForegroundColor= VariablesGlobales.colorTextoMensaje;
+            Console.WriteLine();
+
+            Console.Write($"Monto de compra: ");
+            Funciones.TextoEnColor($"{montoCompra:F2}",ConsoleColor.DarkCyan, VariablesGlobales.colorTextoMensaje);
+            Console.WriteLine();
+            
+            Console.Write($"Monto mínimo para descuento: ");
+            Funciones.TextoEnColor($"{MONTO_MINIMO_COMPRA:F2}",ConsoleColor.DarkCyan, VariablesGlobales.colorTextoMensaje);
+            Console.WriteLine();
+
+            Console.WriteLine(correspondeDescuento 
+                ? "El cliente recibe un descuento del 10%\nEl cliente pagaría: $" + (montoCompra * (1 - PORCENTAJE_DESCUENTO)).ToString("F2")
+                : "El cliente no recibe descuento\nEl cliente pagaría: $" + montoCompra.ToString("F2"));
+            
             Funciones.EsperarTeclaFinal();
         }
         internal static void Ejercicio3()
@@ -126,6 +179,22 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
 
+
+            /*
+            3. 🚗 Control de velocidad
+
+            Define constantes para:
+
+            Velocidad máxima permitida
+            Nombre de la ruta
+            Multa fija
+
+            Luego:
+
+            Define la velocidad de un vehículo
+            Evalúa si supera el límite
+            Muestra si corresponde multa y el monto
+            */
             Funciones.EsperarTeclaFinal();
         }
         internal static void Ejercicio4()
@@ -141,6 +210,25 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
 
+            /*
+
+            4. 🎓 Sistema de aprobación
+
+            Define constantes para:
+
+            Nota mínima para aprobar
+            Nombre del curso
+            Nota máxima posible
+
+            Luego:
+
+            Define la nota de un alumno
+            Evalúa si aprobó (bool)
+            Muestra resultado y datos del curso
+
+            */
+
+
             Funciones.EsperarTeclaFinal();
         }
         internal static void Ejercicio5()
@@ -155,6 +243,24 @@ namespace Practico_ProgramacionIII
             Console.WriteLine("Ejercicio Nro. 5:");
             Console.WriteLine();
             Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
+
+            /*
+
+            5. 🔐 Sistema de seguridad
+
+            Define constantes para:
+
+            Intentos máximos permitidos
+            Nombre del sistema
+            Mensaje de bloqueo
+
+            Luego:
+
+            Define la cantidad de intentos realizados
+            Evalúa si el usuario queda bloqueado
+            Muestra el estado del sistema
+
+            */
 
             Funciones.EsperarTeclaFinal();
         }
