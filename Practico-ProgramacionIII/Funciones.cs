@@ -227,6 +227,55 @@ namespace Practico_ProgramacionIII
                 Console.Write(listadoOpciones[opcionElegida].Titulo);
                 string espacios = new string(' ', anchoTotal-listadoOpciones[opcionElegida].Titulo.Length-listadoOpciones[opcionElegida].TituloColor.Length-listadoOpciones[opcionElegida].Valor.ToString().Length-4);
                 Funciones.TextoEnColor(listadoOpciones[opcionElegida].TituloColor+espacios, colorOpcionColor, Globales.colorTextoMensaje);
+            }
+
+            void MostrarAyuda(int columna, int fila)
+            {
+                
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.SetCursorPosition(columna, fila);
+                Console.ForegroundColor = Globales.colorTextoMensaje;
+                Console.WriteLine("+------------------------------------------+");
+                Console.SetCursorPosition(columna, fila+1);
+                Console.WriteLine("|                   Ayuda                  |");
+                Console.SetCursorPosition(columna, fila+2);
+                Console.WriteLine("+------------------------------------------+");
+                Console.SetCursorPosition(columna, fila+3);
+                Console.WriteLine("|                                          |");
+                Console.SetCursorPosition(columna, fila+4);
+                Console.Write("|     ");
+                Funciones.TextoEnColor("↑ o ↓ para navegar por la opciones", ConsoleColor.Cyan, Globales.colorTextoMensaje);
+                Console.WriteLine("   |");
+                Console.SetCursorPosition(columna, fila+5);
+                Console.WriteLine("|                                          |");
+                Console.SetCursorPosition(columna, fila+6);
+                Console.Write("|     ");
+                Funciones.TextoEnColor("Enter para seleccionar la opcion", ConsoleColor.Cyan, Globales.colorTextoMensaje);
+                Console.WriteLine("     |");
+                Console.SetCursorPosition(columna, fila+7);
+                Console.WriteLine("|                                          |");
+                Console.SetCursorPosition(columna, fila+8);
+                Console.Write("|     ");
+                Funciones.TextoEnColor("Esc para salir del sistema", ConsoleColor.Cyan, Globales.colorTextoMensaje);
+                Console.WriteLine("           |");
+                Console.SetCursorPosition(columna, fila+9);
+                Console.WriteLine("|                                          |");
+                Console.SetCursorPosition(columna, fila+10);
+                Console.WriteLine("+------------------------------------------+");
+                Console.SetCursorPosition(columna, fila+12);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("     Presione ENTER para Volver al Menú");
+                var tecla = Console.ReadKey(true);
+                while (tecla.Key != ConsoleKey.Enter)
+                {
+                    tecla = Console.ReadKey(true);
+                }
+                for (int i = 0; i <= 12; i++)
+                {
+                    Console.SetCursorPosition(columna, fila+i);
+                    Console.WriteLine("                                            ");
+                }
+
             }        
 
             int opcionElegida = 0;    
@@ -242,8 +291,7 @@ namespace Practico_ProgramacionIII
             }
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine("  Presione ↑ o ↓ para navegar por las opciones y Enter para seleccionar\n");
-            Console.WriteLine("  Presione Esc para salir del sistema");
+            Console.WriteLine("  F1: Ayuda");
             
             RemarcarOpcion(opcionElegida, ConsoleColor.DarkGray, anchoTotal);
             Console.CursorVisible = false;
@@ -293,6 +341,12 @@ namespace Practico_ProgramacionIII
                     Console.ResetColor();
                     Console.CursorVisible = true;
                     return listadoOpciones[opcionElegida].Valor;
+                }
+                else if (keyPressed.Key == ConsoleKey.F1)
+                {
+                    RemarcarOpcion(opcionElegida, ConsoleColor.Black, anchoTotal);
+                    MostrarAyuda(Console.WindowWidth-70, Console.WindowHeight-20);
+                    RemarcarOpcion(opcionElegida, ConsoleColor.DarkGray, anchoTotal);
                 }
                 else if (keyPressed.Key == ConsoleKey.Escape)
                 {
