@@ -37,6 +37,7 @@ namespace Practico_ProgramacionIII
             Console.WriteLine("|                                                 |");
             Console.WriteLine("|                                                 |");
             Console.WriteLine("+-------------------------------------------------+");
+            Console.WriteLine("     CTRL + G: Mostrar/Ocultar Contraseña");
             Console.SetCursorPosition(6, 6);
             string userIntented = Funciones.ReadString("Usuario: ", 1, 25, ConsoleColor.Yellow, ConsoleColor.White, false);
             Console.SetCursorPosition(6, 8);
@@ -45,7 +46,7 @@ namespace Practico_ProgramacionIII
             if (userIntented == user && userPasswordIntented == userPassword )
             {
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                Console.SetCursorPosition(0, 12);
+                Console.SetCursorPosition(0, 14);
                 Console.WriteLine($"Bienvenido, {nombreCompleto}!");
                 Console.WriteLine("Has ingresado correctamente tus datos de inicio de sesión");
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -55,7 +56,7 @@ namespace Practico_ProgramacionIII
             else
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.SetCursorPosition(0, 12);
+                Console.SetCursorPosition(0, 14);
                 Console.WriteLine("Los datos ingresados son incorrectos.");
                 Console.WriteLine("No se ha podido iniciar sesión.");
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
