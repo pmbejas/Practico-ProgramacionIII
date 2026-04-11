@@ -142,6 +142,7 @@ namespace Practico_ProgramacionIII
             const char caracterMask = '·';
             int fila = Console.CursorTop;
             int columna = Console.CursorLeft;
+            bool visibleChar = false;
             while (true)
             {
                 var keyPressed = Console.ReadKey(true);
@@ -162,8 +163,30 @@ namespace Practico_ProgramacionIII
                 else if (keyPressed.KeyChar >= 32 && keyPressed.KeyChar <= 126)
                 {
                     password.Append(keyPressed.KeyChar);
-                    Console.Write(caracterMask);
+                    if (visibleChar)
+                    {
+                        Console.Write(keyPressed.KeyChar);
+                    }
+                    else 
+                    {
+                        Console.Write(caracterMask);
+                    }
                 }
+                else if (keyPressed.Key == ConsoleKey.G && keyPressed.Modifiers.HasFlag(ConsoleModifiers.Control))
+                    {
+                        if (visibleChar)
+                        {
+                            Console.SetCursorPosition(columna, fila);
+                            Console.Write(new string(caracterMask, password.Length));
+                            visibleChar = false;
+                        }
+                        else
+                        {
+                            Console.SetCursorPosition(columna, fila);
+                            Console.Write(password.ToString());
+                            visibleChar = true;
+                        }                       
+                    }
             }
         }
     
