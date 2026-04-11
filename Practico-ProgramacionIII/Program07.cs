@@ -11,14 +11,14 @@ namespace Practico_ProgramacionIII
         {
       
             Console.Clear();
-            Funciones.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
-            Funciones.MostrarTitulo("Constanstes de Cálculo y de Control", ConsoleColor.DarkBlue, 0);
+            Funciones.MostrarTitulo(Globales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Funciones.TituloRecuadro("Constantes de Calculo, control y representacion", 0, Globales.colorTextoRecuadroTitulo, Globales.colorLineasRecuadroTitulo, 60);
             
             Console.WriteLine();
-            Console.ForegroundColor = VariablesGlobales.colorTextoTitulo;
+            Console.ForegroundColor = Globales.colorTextoTitulo;
             Console.WriteLine("Constantes de cálculo y control en C#");
             Console.WriteLine();
-            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
+            Console.ForegroundColor = Globales.colorTextoMensaje;
             Console.WriteLine("En el contexto de un sistema como un módulo de facturación, las constantes cumplen un rol");
             Console.WriteLine("fundamental porque permiten centralizar valores que:");
             Console.WriteLine("· No cambian nunca (como una tasa de impuesto fija)");
@@ -28,7 +28,7 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("Constantes de cálculo:");
-            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
+            Console.ForegroundColor = Globales.colorTextoMensaje;
             Console.WriteLine("Son aquellas que intervienen directamente en operaciones matemáticas.");
             Console.WriteLine("  · const decimal TASA_IVA = 0.21m;");
             //Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -37,7 +37,7 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("Constantes de control:");
-            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
+            Console.ForegroundColor = Globales.colorTextoMensaje;
             Console.WriteLine("Sirven para definir el comportamiento del sistema. Por ejemplo:");
             Console.WriteLine("  · const bool MODO_PRUEBA = false;");
             //Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -47,7 +47,7 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("Constantes de representación:");
-            Console.ForegroundColor = VariablesGlobales.colorTextoMensaje;
+            Console.ForegroundColor = Globales.colorTextoMensaje;
             Console.WriteLine("También se usan para definir valores simbólicos, como caracteres:");
             Console.WriteLine("  · const char SIMBOLO_PESO = '$';");
             //Console.ForegroundColor = ConsoleColor.DarkRed;

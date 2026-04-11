@@ -10,7 +10,7 @@ namespace Practico_ProgramacionIII
         public static void Principal()
         {
             string titulo = "Ejercicio 01 - Registro y Login de Usuario";
-            Funciones.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Funciones.MostrarTitulo(Globales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
             Funciones.MostrarTitulo(titulo, ConsoleColor.DarkBlue, 0);
             Console.WriteLine();
             Console.WriteLine("Pimero gurdaremos sus datos");
@@ -25,7 +25,7 @@ namespace Practico_ProgramacionIII
             Console.WriteLine("Presione una tecla para continuar");
             Console.ReadKey();
             Console.Clear();
-            Funciones.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Funciones.MostrarTitulo(Globales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
             Funciones.MostrarTitulo(titulo, ConsoleColor.DarkBlue, 0);
             Console.WriteLine();
             Console.WriteLine("+-------------------------------------------------+");

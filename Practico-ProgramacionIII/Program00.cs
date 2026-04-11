@@ -10,7 +10,7 @@ namespace Practico_ProgramacionIII
         public static void Principal()
         {
             Console.Clear();
-            Funciones.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Funciones.MostrarTitulo(Globales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
             Funciones.MostrarTitulo("Ejercicio 00 - Hola Mundo", ConsoleColor.DarkBlue,0);
             Console.WriteLine();
             Console.WriteLine("Hola Mundo!!!");

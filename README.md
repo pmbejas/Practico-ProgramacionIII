@@ -47,7 +47,7 @@ Practico-ProgramacionIII/
 
 ## 🌐 Variables Globales
 
-Las variables globales del sistema están definidas dentro de la clase estática `VariablesGlobales`, ubicada dentro de la clase `Program` en el archivo `Program.cs`:
+Las variables globales del sistema están definidas dentro de la clase estática `Globales`, ubicada dentro de la clase `Program` en el archivo `Program.cs`:
 
 | Variable | Tipo | Valor | Descripción |
 |---|---|---|---|
@@ -56,7 +56,7 @@ Las variables globales del sistema están definidas dentro de la clase estática
 | `colorTextoTitulo` | `ConsoleColor` | `ConsoleColor.DarkYellow` | Color utilizado para los títulos y encabezados de secciones. |
 | `colorTextoVineta` | `ConsoleColor` | `ConsoleColor.DarkRed` | Color utilizado para las viñetas de los incisos (a., b., c., etc.). |
 
-Estas variables se acceden desde cualquier parte del sistema mediante `Program.VariablesGlobales.nombreVariable` y permiten mantener una **apariencia visual consistente** en toda la aplicación.
+Estas variables se acceden desde cualquier parte del sistema mediante `Program.Globales.nombreVariable` y permiten mantener una **apariencia visual consistente** en toda la aplicación.
 
 ---
 

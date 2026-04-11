@@ -12,7 +12,7 @@ namespace Practico_ProgramacionIII
             ConsoleColor colorTexto = ConsoleColor.White;
             ConsoleColor colorTitulo = ConsoleColor.Blue;
             Console.Clear();
-            Funciones.MostrarTitulo(VariablesGlobales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Funciones.MostrarTitulo(Globales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
             Funciones.MostrarTitulo("Ejercicio 02 - Tipo de Datos Enteros", ConsoleColor.DarkBlue, 0);
             Console.WriteLine();
             Console.ForegroundColor = colorTitulo;
