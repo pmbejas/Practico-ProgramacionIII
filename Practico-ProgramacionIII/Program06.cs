@@ -163,26 +163,72 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoTitulo;
-            Console.WriteLine("Ejercicio Nro. 3:");
+            Console.Write("Ejercicio Nro. 3: ");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Control de Velocidad");
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoMensaje;
 
+            Console.WriteLine();
+            Console.WriteLine("Define constantes para:");
+            Funciones.TextoEnColor(" 1. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Velocidad máxima permitida");
+            Funciones.TextoEnColor(" 2. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Nombre de la ruta");
+            Funciones.TextoEnColor(" 3. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Multa fija");
+           
+            Console.WriteLine();
+            Console.WriteLine("Luego:");
+            Funciones.TextoEnColor(" a. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Declara la velocidad de un vehículo");
+            Funciones.TextoEnColor(" b. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Evalúa si supera el límite");
+            Funciones.TextoEnColor(" c. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Muestra si corresponde multa y el monto");
+            
+            const int VELOCIDAD_MAXIMA_PERMITIDA = 100;
+            const string NOMBRE_RUTA = "Ruta 9";
+            const decimal MULTA_FIJA = 500.00m;
 
-            /*
-            3. 🚗 Control de velocidad
+            int velocidadVehiculo = 120;
+            bool correspondeMulta = velocidadVehiculo > VELOCIDAD_MAXIMA_PERMITIDA;
+            
+            Console.WriteLine();
+            Console.ForegroundColor = Globales.colorTextoTitulo;
+            Console.WriteLine("Ejecución:");
+            Console.ForegroundColor = Globales.colorTextoMensaje;
+            Console.WriteLine();
 
-            Define constantes para:
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Declaracion de constantes:");
+            Console.ForegroundColor = Globales.colorTextoMensaje;
+            Console.WriteLine($"  const int VELOCIDAD_MAXIMA_PERMITIDA = {VELOCIDAD_MAXIMA_PERMITIDA};");
+            Console.WriteLine("  const string NOMBRE_RUTA = \"Ruta 9\";");
+            Console.WriteLine("  const decimal MULTA_FIJA = 500.00m;");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Declaracion de variables:");
+            Console.ForegroundColor = Globales.colorTextoMensaje;
+            Console.WriteLine($"int velocidadVehiculo = {velocidadVehiculo};");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Resultado:");
+            Funciones.TituloRecuadro(NOMBRE_RUTA, Console.CursorTop, ConsoleColor.DarkCyan, ConsoleColor.DarkGray, 50, false);
+            
+            Console.Write($"Velocidad del vehículo: ");
+            Funciones.TextoEnColor($"{velocidadVehiculo}",ConsoleColor.DarkCyan, Globales.colorTextoMensaje);
+            Console.WriteLine();
+            
+            Console.Write($"Velocidad máxima permitida: ");
+            Funciones.TextoEnColor($"{VELOCIDAD_MAXIMA_PERMITIDA}",ConsoleColor.DarkCyan, Globales.colorTextoMensaje);
+            Console.WriteLine();
 
-            Velocidad máxima permitida
-            Nombre de la ruta
-            Multa fija
-
-            Luego:
-
-            Define la velocidad de un vehículo
-            Evalúa si supera el límite
-            Muestra si corresponde multa y el monto
-            */
+            Console.WriteLine(correspondeMulta 
+                ? "El vehículo excede la velocidad máxima permitida\nEl conductor debe pagar una multa de $" + MULTA_FIJA.ToString("F2")
+                : "El vehículo no excede la velocidad máxima permitida\nEl conductor no debe pagar multa");
+            
             Funciones.EsperarTeclaFinal();
         }
         internal static void Ejercicio4()
@@ -194,29 +240,72 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoTitulo;
-            Console.WriteLine("Ejercicio Nro. 4:");
+            Console.Write("Ejercicio Nro. 4: ");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Sistema de aprobacion");
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoMensaje;
 
-            /*
+            Console.WriteLine();
+            Console.WriteLine("Define constantes para:");
+            Funciones.TextoEnColor(" 1. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Nota mínima para aprobar");
+            Funciones.TextoEnColor(" 2. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Nombre del curso");
+            Funciones.TextoEnColor(" 3. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Nota máxima posible");
+            
+            Console.WriteLine();
+            Console.WriteLine("Luego:");
+            Funciones.TextoEnColor(" a. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Declara la nota de un alumno");
+            Funciones.TextoEnColor(" b. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Evalúa si aprobó (bool)");
+            Funciones.TextoEnColor(" c. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Muestra resultado y datos del curso");
+            
+            const int NOTA_MINIMA_APROBACION = 6;
+            const string NOMBRE_CURSO = "Programación III";
+            const int NOTA_MAXIMA_POSIBLE = 10;
 
-            4. 🎓 Sistema de aprobación
+            int notaAlumno = 8;
+            bool aprobo = notaAlumno >= NOTA_MINIMA_APROBACION;
+            
+            Console.WriteLine();
+            Console.ForegroundColor = Globales.colorTextoTitulo;
+            Console.WriteLine("Ejecución:");
+            Console.ForegroundColor = Globales.colorTextoMensaje;
+            Console.WriteLine();
 
-            Define constantes para:
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Declaracion de constantes:");
+            Console.ForegroundColor = Globales.colorTextoMensaje;
+            Console.WriteLine($"  const int NOTA_MINIMA_APROBACION = {NOTA_MINIMA_APROBACION};");
+            Console.WriteLine("  const string NOMBRE_CURSO = \"Programación III\";");
+            Console.WriteLine($"  const int NOTA_MAXIMA_POSIBLE = {NOTA_MAXIMA_POSIBLE};");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Declaracion de variables:");
+            Console.ForegroundColor = Globales.colorTextoMensaje;
+            Console.WriteLine($"int notaAlumno = {notaAlumno};");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Resultado:");
+            Funciones.TituloRecuadro(NOMBRE_CURSO, Console.CursorTop, ConsoleColor.DarkCyan, ConsoleColor.DarkGray, 50, false);
+            
+            Console.Write($"Nota del alumno: ");
+            Funciones.TextoEnColor($"{notaAlumno}",ConsoleColor.DarkCyan, Globales.colorTextoMensaje);
+            Console.WriteLine();
+            
+            Console.Write($"Nota mínima para aprobar: ");
+            Funciones.TextoEnColor($"{NOTA_MINIMA_APROBACION}",ConsoleColor.DarkCyan, Globales.colorTextoMensaje);
+            Console.WriteLine();
 
-            Nota mínima para aprobar
-            Nombre del curso
-            Nota máxima posible
-
-            Luego:
-
-            Define la nota de un alumno
-            Evalúa si aprobó (bool)
-            Muestra resultado y datos del curso
-
-            */
-
-
+            Console.WriteLine(aprobo 
+                ? "El alumno aprobó el curso"
+                : "El alumno no aprobó el curso");
+            
             Funciones.EsperarTeclaFinal();
         }
         internal static void Ejercicio5()
@@ -228,27 +317,81 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoTitulo;
-            Console.WriteLine("Ejercicio Nro. 5:");
+            Console.Write("Ejercicio Nro. 5: ");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Sistema de seguridad");
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoMensaje;
 
-            /*
+            Console.WriteLine();
+            Console.WriteLine("Define constantes para:");
+            Funciones.TextoEnColor(" 1. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Intentos máximos permitidos");
+            Funciones.TextoEnColor(" 2. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Nombre del sistema");
+            Funciones.TextoEnColor(" 3. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Mensaje de bloqueo");
+            
+            Console.WriteLine();
+            Console.WriteLine("Luego:");
+            Funciones.TextoEnColor(" a. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Declara la cantidad de intentos realizados");
+            Funciones.TextoEnColor(" b. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Evalúa si el usuario queda bloqueado");
+            Funciones.TextoEnColor(" c. ", Globales.colorTextoVineta, Globales.colorTextoMensaje);
+            Console.WriteLine("Muestra el estado del sistema");
+            
+            const int MAX_INTENTOS = 3;
+            const string NOMBRE_SISTEMA = "Sistema de Seguridad";
+            const string MENSAJE_BLOQUEO = "Usuario bloqueado por seguridad";
 
-            5. 🔐 Sistema de seguridad
+            int intentosRealizados = 2;
+            bool estaBloqueado = intentosRealizados >= MAX_INTENTOS;
 
-            Define constantes para:
+            Console.WriteLine();
+            Console.ForegroundColor = Globales.colorTextoTitulo;
+            Console.WriteLine("Ejecución:");
+            Console.ForegroundColor = Globales.colorTextoMensaje;
+            Console.WriteLine();
 
-            Intentos máximos permitidos
-            Nombre del sistema
-            Mensaje de bloqueo
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Declaracion de constantes:");
+            Console.ForegroundColor = Globales.colorTextoMensaje;
+            Console.WriteLine($"  const int MAX_INTENTOS = {MAX_INTENTOS}; // {MAX_INTENTOS} intentos máximos");
+            Console.WriteLine($"  const string NOMBRE_SISTEMA = \"{NOMBRE_SISTEMA}\"; // {NOMBRE_SISTEMA}");
+            Console.WriteLine($"  const string MENSAJE_BLOQUEO = \"{MENSAJE_BLOQUEO}\"; // {MENSAJE_BLOQUEO}");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Declaracion de variables:");
+            Console.ForegroundColor = Globales.colorTextoMensaje;
+            Console.WriteLine($"int intentosRealizados = {intentosRealizados}; // {intentosRealizados} intentos");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Resultado:");
+            
+            Console.Write("Sistema: ");
+            Funciones.TextoEnColor(NOMBRE_SISTEMA, ConsoleColor.DarkCyan, Globales.colorTextoMensaje);
+            Console.WriteLine();
+            
+            Console.Write("Intentos realizados: ");
+            Funciones.TextoEnColor($"{intentosRealizados}", ConsoleColor.DarkCyan, Globales.colorTextoMensaje);
+            Console.WriteLine();
+            
+            Console.Write("Intentos máximos: ");
+            Funciones.TextoEnColor($"{MAX_INTENTOS}", ConsoleColor.DarkCyan, Globales.colorTextoMensaje);
+            Console.WriteLine();
 
-            Luego:
-
-            Define la cantidad de intentos realizados
-            Evalúa si el usuario queda bloqueado
-            Muestra el estado del sistema
-
-            */
+            if (estaBloqueado)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(MENSAJE_BLOQUEO);
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Usuario activo - No bloqueado");
+            }
 
             Funciones.EsperarTeclaFinal();
         }

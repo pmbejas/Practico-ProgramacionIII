@@ -25,7 +25,8 @@
                     new OpcionMenu { Valor = 7, Titulo = "Program 07: ", TituloColor = "Constantes de Cálculo, control y representación", Ejecutar = Program07.Principal },
                     new OpcionMenu { Valor = 8, Titulo = "Program 08: ", TituloColor = "(En Construccion...)", Ejecutar = Program08.Principal },
                     new OpcionMenu { Valor = 9, Titulo = "Program 09: ", TituloColor = "(En Construccion...)", Ejecutar = Program09.Principal },
-                    new OpcionMenu { Valor = 10, Titulo = "Program 10: ", TituloColor = "(En Construccion...)", Ejecutar = Program10.Principal }
+                    new OpcionMenu { Valor = 10, Titulo = "Program 10: ", TituloColor = "(En Construccion...)", Ejecutar = Program10.Principal },
+                    new OpcionMenu { Valor = -1, Titulo = "Salir", TituloColor = "", Ejecutar = () => { } }
                 };
                 
                 opcionElegida = Funciones.GenerarMenu(opcionesMenu, 5, ConsoleColor.DarkYellow, ConsoleColor.DarkCyan, true);

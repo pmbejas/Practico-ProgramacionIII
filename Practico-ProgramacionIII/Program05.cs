@@ -15,7 +15,8 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoTitulo;
-            Console.WriteLine("Ejercicio Nro. 1:");
+            Console.Write("Ejercicio Nro. 1: ");
+            Funciones.TextoEnColor("Login de Usuario", ConsoleColor.DarkCyan, ConsoleColor.White);
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoMensaje;
 
@@ -46,9 +47,10 @@ namespace Practico_ProgramacionIII
             Console.WriteLine("|                                                 |");
             Console.WriteLine("|                                                 |");
             Console.WriteLine("+-------------------------------------------------+");
-            Console.SetCursorPosition(6, 19);
+            Funciones.TextoEnColor("Ctrl + G: Mostrar/Ocultar Contraseña", ConsoleColor.DarkCyan, Globales.colorTextoMensaje);
+            Console.SetCursorPosition(6, 18);
             string userIngresado = Funciones.ReadString("Usuario: ", 1, 25, Globales.colorTextoMensaje, ConsoleColor.DarkCyan, false);
-            Console.SetCursorPosition(6, 21);
+            Console.SetCursorPosition(6, 20);
             string userPasswordIngresado = Funciones.ReadPassword("Contraseña: ", Globales.colorTextoMensaje, ConsoleColor.DarkCyan);
 
             bool usuarioEsCorrecto = userIngresado == usuarioCorrecto;
@@ -79,7 +81,8 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoTitulo;
-            Console.WriteLine("Ejercicio Nro. 2:");
+            Console.Write("Ejercicio Nro. 2:");
+            Funciones.TextoEnColor("Aprobación de Alumno", ConsoleColor.DarkCyan, ConsoleColor.White);
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoMensaje;
 
@@ -117,7 +120,8 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoTitulo;
-            Console.WriteLine("Ejercicio Nro. 3:");
+            Console.Write("Ejercicio Nro. 3: ");
+            Funciones.TextoEnColor("Par o Impar", ConsoleColor.DarkCyan, ConsoleColor.White);
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoMensaje;
 
@@ -151,7 +155,8 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoTitulo;
-            Console.WriteLine("Ejercicio Nro. 4:");
+            Console.Write("Ejercicio Nro. 4: ");
+            Funciones.TextoEnColor("Sistema de Aprobación", ConsoleColor.DarkCyan, ConsoleColor.White);
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoMensaje;
 
@@ -188,7 +193,8 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoTitulo;
-            Console.WriteLine("Ejercicio Nro. 5:");
+            Console.Write("Ejercicio Nro. 5: ");
+            Funciones.TextoEnColor("Sistema de Seguridad", ConsoleColor.DarkCyan, ConsoleColor.White);
             Console.WriteLine();
             Console.ForegroundColor = Globales.colorTextoMensaje;
 
@@ -258,11 +264,21 @@ namespace Practico_ProgramacionIII
                 Console.WriteLine("Menu de Opciones:");
                 Console.ForegroundColor = Globales.colorTextoMensaje;
                 Console.WriteLine();
-                Console.WriteLine("  1. Ejercicio 1");
-                Console.WriteLine("  2. Ejercicio 2");
-                Console.WriteLine("  3. Ejercicio 3");
-                Console.WriteLine("  4. Ejercicio 4");
-                Console.WriteLine("  5. Ejercicio 5");
+                Console.Write("  1. Ejercicio 1: ");
+                Funciones.TextoEnColor("Login de Usuario", ConsoleColor.DarkCyan, ConsoleColor.White);
+                Console.WriteLine();
+                Console.Write("  2. Ejercicio 2: ");
+                Funciones.TextoEnColor("Aprobación de Alumno", ConsoleColor.DarkCyan, ConsoleColor.White);
+                Console.WriteLine();
+                Console.Write("  3. Ejercicio 3: ");
+                Funciones.TextoEnColor("Par o Impar", ConsoleColor.DarkCyan, ConsoleColor.White);
+                Console.WriteLine();
+                Console.Write("  4. Ejercicio 4: ");
+                Funciones.TextoEnColor("Sistema de Aprobación", ConsoleColor.DarkCyan, ConsoleColor.White);
+                Console.WriteLine();
+                Console.Write("  5. Ejercicio 5: ");
+                Funciones.TextoEnColor("Sistema de Seguridad", ConsoleColor.DarkCyan, ConsoleColor.White);
+                Console.WriteLine();
                 Console.ForegroundColor= ConsoleColor.DarkYellow;
                 Console.WriteLine("  0. Salir");
                 Console.WriteLine();

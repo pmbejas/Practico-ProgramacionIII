@@ -206,43 +206,47 @@ namespace Practico_ProgramacionIII
             Console.SetCursorPosition(columnaTexto, fila+2);
             Console.Write(titulo);
             Console.ForegroundColor= colorTexto;
-            Console.SetCursorPosition(columna, fila+4);       
+            Console.SetCursorPosition(columna, fila+4);
+            Console.WriteLine();       
         }
 
         public static int GenerarMenu(OpcionMenu[] listadoOpciones, int filaInicial, ConsoleColor colorVineta = ConsoleColor.White, ConsoleColor colorOpcionColor = ConsoleColor.White, bool conMargenes=true)
         {
-            void RemarcarOpcion(int opcionElegida, ConsoleColor colorFondo)
+            void RemarcarOpcion(int opcionElegida, ConsoleColor colorFondo  , int anchoTotal)
             {
                 Console.BackgroundColor = colorFondo;
                 if (conMargenes) {
-                    string margenes = new string(' ', listadoOpciones[opcionElegida].Titulo.Length+listadoOpciones[opcionElegida].TituloColor.Length+7);   
+                    string margenes = new string(' ', anchoTotal);   
                     Console.SetCursorPosition(0, filaInicial+(opcionElegida*2)-1);
                     Console.Write(margenes);
                     Console.SetCursorPosition(0, filaInicial+(opcionElegida*2)+1);
                     Console.Write(margenes);
                 }
                 Console.SetCursorPosition(0, filaInicial+(opcionElegida*2));
-                Funciones.TextoEnColor($"  {listadoOpciones[opcionElegida].Valor}. ", colorVineta, Globales.colorTextoMensaje);
+                Funciones.TextoEnColor($"  {listadoOpciones[opcionElegida].Valor}. ", opcionElegida < listadoOpciones.Length-1 ? colorVineta : colorFondo, Globales.colorTextoMensaje);
                 Console.Write(listadoOpciones[opcionElegida].Titulo);
-                Funciones.TextoEnColor(listadoOpciones[opcionElegida].TituloColor+"  ", colorOpcionColor, Globales.colorTextoMensaje);
+                string espacios = new string(' ', anchoTotal-listadoOpciones[opcionElegida].Titulo.Length-listadoOpciones[opcionElegida].TituloColor.Length-listadoOpciones[opcionElegida].Valor.ToString().Length-4);
+                Funciones.TextoEnColor(listadoOpciones[opcionElegida].TituloColor+espacios, colorOpcionColor, Globales.colorTextoMensaje);
             }        
 
             int opcionElegida = 0;    
             Console.SetCursorPosition(0, filaInicial);
+            int anchoTotal=0;
             for (int i = 0; i < listadoOpciones.Length; i++)
             {
-                Funciones.TextoEnColor($"  {listadoOpciones[i].Valor}. ", colorVineta, Globales.colorTextoMensaje);
+                Funciones.TextoEnColor($"  {listadoOpciones[i].Valor}. ", i < listadoOpciones.Length-1 ? colorVineta : ConsoleColor.Black, Globales.colorTextoMensaje);
                 Console.Write(listadoOpciones[i].Titulo);
                 Funciones.TextoEnColor(listadoOpciones[i].TituloColor, colorOpcionColor, Globales.colorTextoMensaje);
                 Console.WriteLine("\n");
+                anchoTotal=Math.Max(anchoTotal, listadoOpciones[i].Valor.ToString().Length+listadoOpciones[i].Titulo.Length+listadoOpciones[i].TituloColor.Length+6);
             }
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("  Presione ↑ o ↓ para navegar por las opciones y Enter para seleccionar\n");
             Console.WriteLine("  Presione Esc para salir del sistema");
             
-            RemarcarOpcion(opcionElegida, ConsoleColor.DarkGray);
-
+            RemarcarOpcion(opcionElegida, ConsoleColor.DarkGray, anchoTotal);
+            Console.CursorVisible = false;
             while (true)
             {
                 var keyPressed = Console.ReadKey(true);
@@ -250,27 +254,44 @@ namespace Practico_ProgramacionIII
                 {
                     if (opcionElegida > 0)
                     {
-                        RemarcarOpcion(opcionElegida, ConsoleColor.Black);
+                        RemarcarOpcion(opcionElegida, ConsoleColor.Black, anchoTotal);
                         
                         opcionElegida--;
                         
-                        RemarcarOpcion(opcionElegida, ConsoleColor.DarkGray);
+                        RemarcarOpcion(opcionElegida, ConsoleColor.DarkGray, anchoTotal);
+                    }
+                    else
+                    {
+                        RemarcarOpcion(opcionElegida, ConsoleColor.Black, anchoTotal);
+                        
+                        opcionElegida = listadoOpciones.Length - 1;
+                        
+                        RemarcarOpcion(opcionElegida, ConsoleColor.DarkGray, anchoTotal);
                     }
                 }
                 else if (keyPressed.Key == ConsoleKey.DownArrow)
                 {
                     if (opcionElegida < listadoOpciones.Length - 1)
                     {
-                        RemarcarOpcion(opcionElegida, ConsoleColor.Black);
+                        RemarcarOpcion(opcionElegida, ConsoleColor.Black, anchoTotal);
                         
                         opcionElegida++;
                         
-                        RemarcarOpcion(opcionElegida, ConsoleColor.DarkGray);
+                        RemarcarOpcion(opcionElegida, ConsoleColor.DarkGray, anchoTotal);
+                    }
+                    else
+                    {
+                        RemarcarOpcion(opcionElegida, ConsoleColor.Black, anchoTotal);
+                        
+                        opcionElegida = 0;
+                        
+                        RemarcarOpcion(opcionElegida, ConsoleColor.DarkGray, anchoTotal);
                     }
                 }
                 else if (keyPressed.Key == ConsoleKey.Enter)
                 {
                     Console.ResetColor();
+                    Console.CursorVisible = true;
                     return listadoOpciones[opcionElegida].Valor;
                 }
                 else if (keyPressed.Key == ConsoleKey.Escape)
