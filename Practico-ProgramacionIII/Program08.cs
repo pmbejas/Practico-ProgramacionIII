@@ -8,6 +8,19 @@ namespace Practico_ProgramacionIII
 {
     public class Program08
     {
+        static void Movimiento(ref int fila, int movimientoFila, ref int columna, int movimientoColumna, int pasos, int[,] matriz, ref int numero, int esperaEnMs, int posicionFilaInicial, int posicionColumnaInicial)
+        {
+            for (int i = 1; i <= pasos; i++)
+            {
+                fila = fila + movimientoFila;
+                columna = columna + movimientoColumna;
+                matriz[fila, columna] = numero;
+                Console.SetCursorPosition(posicionColumnaInicial+columna*5, posicionFilaInicial+fila*2);
+                Console.Write(matriz[fila, columna]);
+                Thread.Sleep(esperaEnMs);
+                numero++;
+            }           
+        }
 
         public static void Principal()
         {
@@ -31,15 +44,15 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();
             int rangoMatriz=0;
             int posicionMensaje = Console.CursorTop;
-            while (rangoMatriz%2==0 || rangoMatriz<3 || rangoMatriz>9)
-            {
+            while (rangoMatriz%2==0 || rangoMatriz<3 || rangoMatriz>15)
+              {
                 Console.SetCursorPosition(0, posicionMensaje);
-                rangoMatriz = Funciones.ReadInteger("Ingrese el rango de la matriz: ", ConsoleColor.White);
-                if (rangoMatriz%2==0 || rangoMatriz<3 || rangoMatriz>9)
+                rangoMatriz = Funciones.ReadInteger("Ingrese el rango de la matriz (impar entre 3 y 15): ", ConsoleColor.White);
+                if (rangoMatriz%2==0 || rangoMatriz<3 || rangoMatriz>15)
                 {
                     Console.SetCursorPosition(0, posicionMensaje+2);
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("El rango de la matriz debe ser impar, mayor o igual a 3 y menor o igual a 9");
+                    Console.WriteLine("El rango de la matriz debe ser impar, mayor o igual a 3 y menor o igual a 15");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("Presione cualquier tecla para continuar");
                     Console.ReadKey(true);
@@ -71,56 +84,17 @@ namespace Practico_ProgramacionIII
             Thread.Sleep(esperaEnMs);
             while (fila>=0)
             {
-                for (int i = 1; i<= pasos; i++)
-                {
-                    columna++;
-                    matriz[fila, columna] = numero;
-                    Console.SetCursorPosition(posicionColumnaInicial+columna*5, posicionFilaInicial+fila*2);
-                    Console.Write(matriz[fila, columna]);
-                    Thread.Sleep(esperaEnMs);
-                    numero++;
-                }
-                for (int i = 1; i<= pasos; i++)
-                {
-                    fila++;
-                    matriz[fila, columna] = numero;
-                    Console.SetCursorPosition(posicionColumnaInicial+columna*5, posicionFilaInicial+fila*2);
-                    Console.Write(matriz[fila, columna]);
-                    Thread.Sleep(esperaEnMs);
-                    numero++;
-                }
+                Movimiento(ref fila, 0, ref columna, 1, pasos, matriz, ref numero, esperaEnMs, posicionFilaInicial, posicionColumnaInicial);
+                Movimiento(ref fila, 1, ref columna, 0, pasos, matriz, ref numero, esperaEnMs, posicionFilaInicial, posicionColumnaInicial);
                 pasos++;
-                for (int i = 1; i<= pasos; i++)
-                {
-                    columna--;
-                    matriz[fila, columna] = numero;
-                    Console.SetCursorPosition(posicionColumnaInicial+columna*5, posicionFilaInicial+fila*2);
-                    Console.Write(matriz[fila, columna]);
-                    Thread.Sleep(esperaEnMs);
-                    numero++;
-                }
-                for (int i = 1; i<= pasos; i++)
-                {
-                    fila--;
-                    matriz[fila, columna] = numero;
-                    Console.SetCursorPosition(posicionColumnaInicial+columna*5, posicionFilaInicial+fila*2);
-                    Console.Write(matriz[fila, columna]);
-                    Thread.Sleep(esperaEnMs);
-                    numero++;
-                }
+                Movimiento(ref fila, 0, ref columna, -1, pasos, matriz, ref numero, esperaEnMs, posicionFilaInicial, posicionColumnaInicial);
+                Movimiento(ref fila, -1, ref columna, 0, pasos, matriz, ref numero, esperaEnMs, posicionFilaInicial, posicionColumnaInicial);
                 pasos++;
+                
                 if (fila==0)
                 {
-                    for (int i = 1; i<= pasos-1; i++)
-                    {
-                        columna++;
-                        matriz[fila, columna] = numero;
-                        Console.SetCursorPosition(posicionColumnaInicial+columna*5, posicionFilaInicial+fila*2);
-                        Console.Write(matriz[fila, columna]);
-                        Thread.Sleep(esperaEnMs);
-                        numero++;
-                    }
-                    fila--;
+                    Movimiento (ref fila, 0, ref columna, 1, pasos-1, matriz, ref numero, esperaEnMs, posicionFilaInicial, posicionColumnaInicial);
+                    fila--; 
                 }
             }
             Console.SetCursorPosition(0, posicionFilaInicial+(rangoMatriz*2)+3);

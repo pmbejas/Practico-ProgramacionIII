@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using static Practico_ProgramacionIII.Program;
+using System.Threading;
 
 namespace Practico_ProgramacionIII
 {
@@ -95,6 +96,38 @@ namespace Practico_ProgramacionIII
             Console.ReadKey();
             Console.CursorVisible = true;
         }
+
+        public static void EsperarTeclaFinalBlink()
+        {
+            Console.CursorVisible = false;
+            int linea = Console.CursorTop + 2;
+            while (!Console.KeyAvailable)
+            {
+                Console.SetCursorPosition(0, linea);
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("Programa Finalizado");
+                Console.WriteLine("Presione cualquier tecla para continuar");
+                Thread.Sleep(100);
+                Console.SetCursorPosition(0, linea);
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("Programa Finalizado");
+                Console.WriteLine("Presione cualquier tecla para continuar");
+                Thread.Sleep(100);
+                Console.SetCursorPosition(0, linea);
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("Programa Finalizado");
+                Console.WriteLine("Presione cualquier tecla para continuar");
+                Thread.Sleep(100);
+                Console.SetCursorPosition(0, linea);
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("Programa Finalizado");
+                Console.WriteLine("Presione cualquier tecla para continuar");
+                Thread.Sleep(100);
+            }
+            Console.ReadKey(true);
+            Console.CursorVisible = true;
+        }
+
 
         public static void MostrarTitulo(string titulo, ConsoleColor colorTexto, int linea, bool centrado = true)
         {

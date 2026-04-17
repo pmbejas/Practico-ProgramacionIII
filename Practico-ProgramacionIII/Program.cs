@@ -26,6 +26,8 @@
                     new OpcionMenu { Valor = 8, Titulo = "Program 08: ", TituloColor = "Matriz Caracol", Ejecutar = Program08.Principal },
                     new OpcionMenu { Valor = 9, Titulo = "Program 09: ", TituloColor = "(En Construccion...)", Ejecutar = Program09.Principal },
                     new OpcionMenu { Valor = 10, Titulo = "Program 10: ", TituloColor = "(En Construccion...)", Ejecutar = Program10.Principal },
+                    new OpcionMenu { Valor = 11, Titulo = "Ejercicios Clases Practicas: ", TituloColor = "Propuestas en clase", Ejecutar = EjerciciosClasesPracticas.Principal },
+                    new OpcionMenu { Valor = 12, Titulo = "Ejercitacion ", TituloColor = "Practicas Personales", Ejecutar = Ejercitacion.Principal },
                     new OpcionMenu { Valor = -1, Titulo = "Salir", TituloColor = "", Ejecutar = () => { } }
                 };
                 
