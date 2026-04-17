@@ -147,7 +147,7 @@ namespace Practico_ProgramacionIII
             Console.ForegroundColor = Globales.colorTextoTitulo;
             Console.WriteLine("MARQUESINA: ");
             Console.ForegroundColor = Globales.colorTextoMensaje;
-            string textoMarquesina = Funciones.ReadString("Ingrese un texto: ", 1, 100, ConsoleColor.White, ConsoleColor.White, false);
+            string textoMarquesina = Funciones.ReadString("Ingrese un texto: ", 1, 50, ConsoleColor.White, ConsoleColor.White, false);
             textoMarquesina = textoMarquesina + " - ";
             char[] arrayTexto = textoMarquesina.ToCharArray();
             char[] arrayTextoMovido = new char[arrayTexto.Length];
@@ -160,9 +160,9 @@ namespace Practico_ProgramacionIII
             while (!Console.KeyAvailable)
             {
                 Marquesina(arrayTexto, arrayTextoMovido, arrayTexto.Length-1);
-                arrayTexto = arrayTextoMovido.Clone() as char[];                
+                arrayTexto = arrayTextoMovido.ToArray();                
                 Console.SetCursorPosition(4, linea);
-                foreach (char c in arrayTexto) Console.Write(c);
+                foreach (char caracter in arrayTexto) Console.Write(caracter);
                 Console.WriteLine();
                 Thread.Sleep(100);
             }

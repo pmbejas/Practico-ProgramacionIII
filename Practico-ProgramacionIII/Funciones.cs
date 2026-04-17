@@ -128,7 +128,6 @@ namespace Practico_ProgramacionIII
             Console.CursorVisible = true;
         }
 
-
         public static void MostrarTitulo(string titulo, ConsoleColor colorTexto, int linea, bool centrado = true)
         {
             Console.Title = titulo;
@@ -387,6 +386,16 @@ namespace Practico_ProgramacionIII
                     return -1;
                 }
             }
+        }
+
+        public static void EliminarLineas(int cantidadLineas, int linea)
+        {
+            for (int i = 0; i < cantidadLineas; i++)
+            {
+                Console.SetCursorPosition(0, linea + i);
+                Console.Write(new string(' ', Console.WindowWidth));
+            }
+            Console.SetCursorPosition(0, linea);
         }
     }
 }
