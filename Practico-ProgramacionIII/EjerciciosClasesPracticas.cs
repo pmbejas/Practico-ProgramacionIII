@@ -8,6 +8,61 @@ namespace Practico_ProgramacionIII
 {
     public class EjerciciosClasesPracticas
     {
+        public class Alumno 
+            {
+                private string nombre {get; set;}
+                private int nota1 {get; set;}
+                private int nota2 {get; set;}
+
+                public Alumno (string nombreClase, int nota1Clase, int nota2Clase)
+                {
+                    nombre = nombreClase;
+                    nota1 = nota1Clase;
+                    nota2 = nota2Clase;
+                }
+
+                public double CalcularPromedio()
+                {
+                    return (nota1 + nota2) /2;
+                }
+
+                public bool EstaAprobado()
+                {
+                    return CalcularPromedio() >= 6;
+                }
+
+                public void MostrarEstado()
+                {
+                    Console.WriteLine();
+                    Console.ForegroundColor = Globales.colorTextoTitulo;
+                    Console.Write($"Nombre de Alumno: ");
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    Console.WriteLine($"{nombre}\n");
+                    Console.ForegroundColor = Globales.colorTextoTitulo;
+                    Console.Write($"Promedio: ");
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    Console.WriteLine($"{CalcularPromedio()}\n");
+                    
+                    bool aprobado = EstaAprobado();
+                    Console.ForegroundColor = Globales.colorTextoMensaje;
+                    Console.Write($"Estado: ");
+                    Console.ForegroundColor = aprobado ? ConsoleColor.Green : ConsoleColor.Red;
+                    Console.WriteLine($"{(aprobado ? "Aprobado" : "Desaprobado")}");
+                    Console.WriteLine();
+                    /*if (EstaAprobado())
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Estado: Aprobado");
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Estado: Desaprobado");
+                    }*/
+                    //Console.WriteLine(Estaaprobado() ? "Estado: Aprobado" : "Estado: Desaprobado");
+                }
+            }
+
         static void Ejercicio1()
         {
             Console.Clear();
@@ -62,7 +117,40 @@ namespace Practico_ProgramacionIII
         }
         static void Ejercicio2()
         {
-              Funciones.ProgramaEnConstruccion();
+            Console.Clear();
+            Funciones.MostrarTitulo(Globales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
+            Funciones.TituloRecuadro("Ejercicio Clase 21/04/2026", 0, Globales.colorTextoRecuadroTitulo, Globales.colorLineasRecuadroTitulo, 60);
+
+            Console.WriteLine();
+            Console.ForegroundColor = Globales.colorTextoTitulo;
+            Console.WriteLine("Sistema simple de alumnos");
+            Console.WriteLine();
+            Console.ForegroundColor = Globales.colorTextoMensaje;
+            Console.WriteLine("Crear una clase Alumno que tenga:");
+            Console.WriteLine("   · Nombre");
+            Console.WriteLine("   · Nota1");
+            Console.WriteLine("   · Nota2");
+            Console.WriteLine("Y que resuelva estos puntos:");
+            Console.WriteLine("   1.Un constructor que reciba nombre, nota1 y nota2.");
+            Console.WriteLine("   2.Un método CalcularPromedio() que devuelva el promedio.");
+            Console.WriteLine("   3.Un método EstaAprobado() que devuelva true si el promedio es mayor o igual a 6.");
+            Console.WriteLine("   4.Un método MostrarEstado() que imprima:");
+            Console.WriteLine("      · nombre");
+            Console.WriteLine("      · promedio");
+            Console.WriteLine("      · si está aprobado o desaprobado");
+            Console.WriteLine();
+            Console.ForegroundColor = Globales.colorTextoTitulo;
+            Console.WriteLine("Ejecución:");
+            Console.WriteLine();
+
+            string nombre = Funciones.ReadString("Ingrese el nombre del alumno: ", 3, 20);
+            int nota1 = Funciones.ReadInteger("Ingrese la primera nota: ", ConsoleColor.DarkCyan);
+            int nota2 = Funciones.ReadInteger("Ingrese la segunda nota: ", ConsoleColor.DarkCyan);
+            
+            Alumno alumno = new Alumno(nombre, nota1, nota2);
+            alumno.MostrarEstado();
+            
+            Funciones.EsperarTeclaFinal();
         }
 
         static void Ejercicio3()
@@ -107,10 +195,10 @@ namespace Practico_ProgramacionIII
                 Console.ForegroundColor = Globales.colorTextoMensaje;
                 Console.WriteLine();
                 Console.Write("  1. Ejercicio 1: ");
-                Funciones.TextoEnColor("Permiso de Ingreso (Clase del dia 14/04/2026)", ConsoleColor.DarkCyan, ConsoleColor.White);
+                Funciones.TextoEnColor("Permiso de Ingreso (Clase del día 14/04/2026)", ConsoleColor.DarkCyan, ConsoleColor.White);
                 Console.WriteLine();
                 Console.Write("  2. Ejercicio 2: ");
-                Funciones.TextoEnColor("En Construcción", ConsoleColor.DarkCyan, ConsoleColor.White);
+                Funciones.TextoEnColor("Sistema simple de alumnos (Clase del día 21/04/2026)", ConsoleColor.DarkCyan, ConsoleColor.White);
                 Console.WriteLine();
                 Console.Write("  3. Ejercicio 3: ");
                 Funciones.TextoEnColor("En Construcción", ConsoleColor.DarkCyan, ConsoleColor.White);

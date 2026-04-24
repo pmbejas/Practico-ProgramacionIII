@@ -68,7 +68,7 @@ namespace Practico_ProgramacionIII
                 }
             }
 
-            static void MarquesinaFor(char[] arrayOriginal, char[] arrayMovido, int k)
+            /* static void MarquesinaFor(char[] arrayOriginal, char[] arrayMovido, int k)
             {
                 for (int i=0; i<k;i++)
                 {
@@ -78,7 +78,7 @@ namespace Practico_ProgramacionIII
                 {
                     arrayMovido[j+k]=arrayOriginal[j];
                 }
-            }
+            } */
 
             static void RotarArray(int[] arrayOriginal, int[] arrayMovido, int k)
             {
@@ -190,6 +190,26 @@ namespace Practico_ProgramacionIII
             Console.WriteLine("Ejecución:");
             Console.WriteLine();
 
+            int[] array = {1,2,3,4,5,6,7,8,9,10};
+            
+            Console.ForegroundColor = Globales.colorTextoTitulo;
+            Console.Write("Array Original:  ");
+            Console.ForegroundColor = Globales.colorTextoMensaje;
+            foreach (int number in array) Console.Write($"{number}  ");
+            Console.WriteLine("\n");
+
+            for (int i = 0; i < (array.Length - i); i++)
+            {
+                int aux = array[(array.Length - 1) - i];
+                array[array.Length-1 - i] = array[i];
+                array[i]= aux;
+            }
+
+            Console.ForegroundColor = Globales.colorTextoTitulo;
+            Console.Write("Array Invertido: ");
+            Console.ForegroundColor = Globales.colorTextoMensaje;
+            foreach (int number in array) Console.Write($"{number}  ");
+            
             Funciones.EsperarTeclaFinalBlink();
         }
 
@@ -213,12 +233,82 @@ namespace Practico_ProgramacionIII
             Console.WriteLine("Ejecución:");
             Console.WriteLine();
 
+            int cantidadElementos = Funciones.ReadInteger("Ingrese la cantidad de elementos del Array: ", Globales.colorTextoMensaje);
+            int [] array = new int[cantidadElementos];
+
+            for (int i=0; i < cantidadElementos; i++)
+            {
+                array[i] = Funciones.ReadInteger($"Ingrese el elemento {i+1}: ", ConsoleColor.DarkCyan);
+            }
+
+            Console.WriteLine("\n");
+            Console.ForegroundColor = Globales.colorTextoTitulo;
+            Console.WriteLine("Resultado: \n\n");
+            Console.ForegroundColor = Globales.colorTextoMensaje;
+            Console.Write("Array Original:   ");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            foreach (int number in array) Console.Write($"{number}  ");
+            Console.WriteLine("\n");
+
+            for (int j=0; j < cantidadElementos; j++)
+            {
+                for (int i=0; i< cantidadElementos-1; i++)
+                {
+                    if (array[i]==0)
+                    {
+                        int variableAuxiliar = array[i];
+                        array[i] = array[i+1];
+                        array[i+1] = variableAuxiliar;
+                    }
+                }
+            }
+
+            Console.ForegroundColor = Globales.colorTextoMensaje;
+            Console.Write("Array Compactado: ");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            foreach (int number in array) Console.Write($"{number}  ");
+            Console.WriteLine("\n");
+
             Funciones.EsperarTeclaFinal();
         }
 
         static void Ejercicio6()
         {
-            Funciones.ProgramaEnConstruccion();
+            /*
+            Consigna: Algoritmo de Ciclo Agrícola Autónomo (ACAA)
+            1. Contexto del Problema
+                Se debe desarrollar un programa que simule la lógica de un helicóptero agrícola encargado de gestionar una parcela de 3x3 celdas. El objetivo es que el alumno diseñe un algoritmo capaz de ejecutar ciclos completos de producción para tres tipos de productos: Zanahoria, Tomate y Cebolla, gestionando el inventario de forma programática.
+
+            2. Definición de la Parcela
+                El terreno se representará mediante una matriz de enteros de 3x3. Cada celda almacenará un valor numérico que representa su contenido:
+                0: Suelo vacío.
+                1: Zanahoria.
+                2: Tomate.
+                3: Cebolla.
+
+            3. Reglas de Operación (Ciclo de Trabajo)
+                El helicóptero debe operar de forma secuencial. El diseño del flujo de control es responsabilidad del alumno, pero debe respetar las siguientes fases obligatorias en cada ciclo:
+                Fase de Siembra: El helicóptero debe recorrer las 9 celdas de la parcela y asignarles el código del producto elegido. El alumno debe decidir mediante código qué producto se plantará en cada ciclo.
+                Restricción de Acción: No se permite realizar la cosecha en el mismo recorrido de siembra. El helicóptero debe completar la parcela entera antes de iniciar cualquier otra tarea.
+                Fase de Cosecha: En un nuevo recorrido, el agente pasará por cada celda para recolectar el producto. Cada celda procesada sumará 3 unidades al inventario acumulado correspondiente.
+                Fase de Limpieza (Desplantar): Una vez finalizada la cosecha de la parcela, el helicóptero debe realizar un recorrido adicional para resetear los valores de la matriz a 0. Esta fase es indispensable para habilitar el inicio de un nuevo ciclo de siembra.
+
+            4. Requerimientos del Desarrollo
+                Automatización: El programa no debe solicitar datos al usuario en cada vuelta; la lógica de qué sembrar y cuándo avanzar debe estar definida en el código.
+                Gestión de Equidad: El algoritmo debe buscar que, tras varios ciclos, las cantidades totales en el inventario de Zanahorias, Tomates y Cebollas sean lo más parecidas posible.
+                Salida de Datos: El programa debe imprimir en consola el estado de la matriz tras cada fase y mostrar el progreso del inventario global.
+
+            Tips y Recomendaciones para la Resolución
+                Para resolver este ejercicio con éxito utilizando programación estructurada, se sugieren los siguientes puntos:
+                Estructura del Bucle Principal: Utilicen un bucle while o un ciclo determinado para simular los "días" o "vueltas" de la producción. Dentro de este bucle, llamen a los procesos de siembra, cosecha y limpieza.
+                Lógica de Decisión de Siembra: Una forma eficiente de resolver la equidad es usar una variable de control o un contador. Por ejemplo: el ciclo 1 siembra Producto 1, el ciclo 2 Producto 2, y así sucesivamente; o bien, comparar los totales del inventario antes de decidir el próximo idProducto.
+                Modularización: Es vital dividir el código en funciones (ej: void RealizarSiembra(int producto), void RealizarCosecha(), void LimpiarParcela()). Esto permite que el programa sea legible y fácil de mantener.
+                Recorrido Uniforme: Para simular el movimiento del helicóptero, utilicen siempre bucles for anidados. Recuerden que acceder a matriz[i][j] representa la presencia física del helicóptero en esa celda.
+                Inventario Global: Utilicen un arreglo de tamaño 3 (int stock[3]) declarado de forma que persista durante toda la ejecución, para que los datos no se pierdan al cambiar de ciclo.
+                Visualización de Matrices: Creen una función pequeña para imprimir la matriz de 3x3. Ver la matriz llena de 1s, luego ver cómo el inventario sube y finalmente ver la matriz volver a 0s es la mejor forma de comprobar que el algoritmo funciona correctamente.
+            */
+
+            Cosecha.Principal();
         }
 
         public static void Principal()
