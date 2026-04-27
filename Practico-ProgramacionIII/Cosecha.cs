@@ -10,25 +10,15 @@ namespace Practico_ProgramacionIII
     {
         static int tiempoEspera = 0;
         static string[] productos = {"Zanahoria", "Tomate", "Cebolla"};
-        static int productoActivo = 0;
+        static int[] cantidadCosechada = {0,0,0};
+        static int productoActivo = -1;
         static int rango = 3;
         static int[,] estadoParcela = new int[rango,rango];
         static int[,] parcela = new int[rango,rango];
         static int columnaInicial = (Console.WindowWidth-rango*9)/2;
         static int filaInicial = (Console.WindowHeight-rango*5)/2;
 
-        static void DivisorVentana(int ancho, int columna, int fila)
-        {
-            for (int i = 1; i <= ancho; i++)
-            {
-                Console.SetCursorPosition(columna + i, fila);
-                Console.Write("─");
-            }
-            Console.SetCursorPosition(columna, fila);
-            Console.Write("├");
-            Console.SetCursorPosition(columna+ancho, fila);
-            Console.Write("┤");
-        }
+
 
         static void DibujarTabla(string[] productos, int ancho, int alto, int columna, int fila)
         {
@@ -50,11 +40,28 @@ namespace Practico_ProgramacionIII
                 Console.Write("┴");
                 Console.SetCursorPosition(columna+((i-1)*anchoCelda)+2,fila+1);
                 Console.Write(productos[i-1]);
+                Console.SetCursorPosition(columna+((i-1)*anchoCelda)+7,fila+4);
+                Console.Write(cantidadCosechada[i-1]);
             }
             Console.SetCursorPosition(columna+((cantidadProductos-1)*anchoCelda)+2,fila+1);
             Console.Write(productos[cantidadProductos-1]);
+            Console.SetCursorPosition(columna+((cantidadProductos-1)*anchoCelda)+7,fila+4);
+            Console.Write(cantidadCosechada[cantidadProductos-1]);
         }
 
+        static void DivisorVentana(int ancho, int columna, int fila)
+        {
+            for (int i = 1; i <= ancho; i++)
+            {
+                Console.SetCursorPosition(columna + i, fila);
+                Console.Write("─");
+            }
+            Console.SetCursorPosition(columna, fila);
+            Console.Write("├");
+            Console.SetCursorPosition(columna+ancho, fila);
+            Console.Write("┤");
+        }
+        
         static void DibujarVentana(string titulo, int ancho, int alto, int columna, int fila, ConsoleColor colorLinea = ConsoleColor.White)
         {
             
@@ -243,7 +250,7 @@ namespace Practico_ProgramacionIII
 
         static string[] ValidarPlantacion(string accion)
         {
-            if (productoActivo==0)
+            if (productoActivo==-1)
             {
                 string[] mensajeError = new string[3];
                 mensajeError[0]="No se puede plantar la parcela";
@@ -311,6 +318,26 @@ namespace Practico_ProgramacionIII
             }
         }
 
+        static void Cosechar(int[,] estadoParcela, int[,] parcela)
+        {
+            tiempoEspera = 50;
+            string [] validar = ValidarPlantacion("Cosechar");
+            if (validar.Length == 0)
+            {
+                PintarParcela(columnaInicial, filaInicial, rango, ConsoleColor.Red);
+                CambiarEstadoParcela(estadoParcela, 2);
+                cantidadCosechada[productoActivo] = cantidadCosechada[productoActivo] + 27;
+                DibujarTabla(productos, 55-4, 7, Console.WindowWidth-58, ((Console.WindowHeight-25)/2+16));
+                string[] mensaje= new string[3];
+                mensaje[0]=$"Se ha cosechado {productos[productoActivo]}s de la parcela";
+                mensaje[1]="Debera limpiar la parcela para poder volver a Plantar";
+                mensaje[2]="Presiona una tecla para continuar";
+                VentanaAviso(mensaje, 70, 8, (Console.WindowWidth-70)/2, Console.WindowHeight-15, ConsoleColor.DarkGreen);
+            } else {
+                VentanaAviso(validar, 70, 8, (Console.WindowWidth-70)/2, Console.WindowHeight-15, ConsoleColor.DarkRed);
+            }
+        }
+
         public static int ReadOpcionMenu(string mensaje, ConsoleColor colorTexto, int columna, int fila)
         {
             int value;
@@ -334,13 +361,18 @@ namespace Practico_ProgramacionIII
             }
         }
 
+        static void MostrarTotal(int[] productos)
+        {
+
+        }
+
         public static void Principal()
         {
             /* -------- Codigo Parte Visual -------- */
             Console.Clear();
             Funciones.MostrarTitulo(Globales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight - 1);
             Funciones.TituloRecuadro("Cosecha", 0, Globales.colorTextoRecuadroTitulo, Globales.colorLineasRecuadroTitulo, 60);
-            productoActivo = 1;
+            productoActivo = 0;
             VentanaReferencia(55,25,Console.WindowWidth-60, (Console.WindowHeight-25)/2);            
             VentanaMenu(55,25,5, (Console.WindowHeight-25)/2);
             MostrarProductoElegido(50, 6, (Console.WindowWidth-50)/2, 6);
@@ -361,7 +393,7 @@ namespace Practico_ProgramacionIII
                 {
                     1 => () => Limpiar(estadoParcela, parcela),
                     2 => () => Plantar(estadoParcela, parcela, productoActivo),
-                    3 => () => {},
+                    3 => () => Cosechar(estadoParcela, parcela),
                     4 => () => {},
                     0 => () => {},
                     _ => () => 

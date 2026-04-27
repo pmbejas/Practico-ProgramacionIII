@@ -201,7 +201,7 @@ namespace Practico_ProgramacionIII
                 Funciones.TextoEnColor("Sistema simple de alumnos (Clase del día 21/04/2026)", ConsoleColor.DarkCyan, ConsoleColor.White);
                 Console.WriteLine();
                 Console.Write("  3. Ejercicio 3: ");
-                Funciones.TextoEnColor("En Construcción", ConsoleColor.DarkCyan, ConsoleColor.White);
+                Funciones.TextoEnColor("POO: Encapsulamiento - Sistema Bancario", ConsoleColor.DarkCyan, ConsoleColor.White);
                 Console.WriteLine();
                 Console.Write("  4. Ejercicio 4: ");
                 Funciones.TextoEnColor("En Construcción", ConsoleColor.DarkCyan, ConsoleColor.White);
@@ -222,7 +222,7 @@ namespace Practico_ProgramacionIII
                 {
                     1 => () => Ejercicio1(),
                     2 => () => Ejercicio2(),
-                    3 => () => Ejercicio3(),
+                    3 => () => ObjetosEncapsulamiento.Principal(),
                     4 => () => Ejercicio4(),
                     5 => () => Ejercicio5(),
                     6 => () => Ejercicio6(),

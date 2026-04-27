@@ -47,6 +47,38 @@ namespace Practico_ProgramacionIII
             }
         }
 
+        public static double ReadDouble(string mensaje, ConsoleColor colorTexto)
+        {
+            double value;
+            Console.ForegroundColor = colorTexto;
+            Console.Write(mensaje);
+            Console.ResetColor();
+            int fila = Console.CursorTop;
+            int columna = Console.CursorLeft;
+            while (true)
+            {
+                if (double.TryParse(Console.ReadLine(), out value))
+                {
+                    return value;
+                }
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.SetCursorPosition(0, fila + 2);
+                Console.WriteLine("No se ingresó un número valido");
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("Presiona cualquier tecla para intentar nuevamente...");
+                Console.ReadKey();
+                int cantidadEspacios = Console.WindowWidth - columna;
+                Console.SetCursorPosition(columna, fila);
+                Console.Write(new string(' ', cantidadEspacios));
+                Console.SetCursorPosition(0, fila + 2);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(0, fila + 3);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.ResetColor();
+                Console.SetCursorPosition(columna, fila);
+            }
+        }
+
         public static string ReadString(string mensaje, int cantidadCaracteresMinimo, int cantidadCaracteresMaximo, ConsoleColor colorTextoMensaje = ConsoleColor.White, ConsoleColor colorTextoValor = ConsoleColor.White, bool checkError = true)
         {
             string? value;
