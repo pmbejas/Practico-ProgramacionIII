@@ -87,7 +87,7 @@ namespace Practico_ProgramacionIII
                 {
                     return "No posee saldo suficiente para retirar";
                 }
-                _saldo -= importe;
+                Saldo -= importe;
                 _historialTransacciones.Add(new Transacciones(2, importe));
                 return "Operación Exitosa";
             }
@@ -98,7 +98,7 @@ namespace Practico_ProgramacionIII
                 {
                     return "El importe a Depositar debe ser mayor a 0";
                 }
-                _saldo += importe;
+                Saldo += importe;
                 _historialTransacciones.Add(new Transacciones(1, importe));
                 return "Operación Exitosa";
             }       
@@ -332,8 +332,25 @@ namespace Practico_ProgramacionIII
             int columna = (Console.WindowWidth-70)/2;
             int fila = 19;
             DibujarVentana("Consultar Transaccion", 70, 24, columna, fila);
-
+            DivisorVentana(70, columna, fila+6);
+            Console.SetCursorPosition(((Console.WindowWidth)/2)-30, 23);
+            int idIngresado = Funciones.ReadInteger("Ingrese el ID de la Transaccion: ", ConsoleColor.Red);
+            var transaccion = cuentaCliente.HistorialTransacciones.Where( transaccion => transaccion.IdTransaccion == idIngresado).FirstOrDefault();
             
+            Console.SetCursorPosition(((Console.WindowWidth)/2)-30, 28);
+            Console.WriteLine ($"ID de Transaccion: {transaccion.IdTransaccion}"); 
+            
+            Console.SetCursorPosition(((Console.WindowWidth)/2)-30, 30);
+            Console.WriteLine ($"Fecha: {transaccion.FechaTransaccion}"); 
+
+            Console.SetCursorPosition(((Console.WindowWidth)/2)-30, 32);
+            string tipoOperacion = $"tipo Operacion: {(transaccion.CodigoTransaccion == 1 ? "Deposito" : "Extraccion")}";
+            Console.WriteLine (tipoOperacion);
+
+            Console.SetCursorPosition(((Console.WindowWidth)/2)-30, 34);
+            Console.WriteLine ($"Importe: {transaccion.Importe}");
+
+
             string mensajePresionar = "Presione una Tecla para Continuar";
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(((Console.WindowWidth-mensajePresionar.Length)/2), fila+22);
