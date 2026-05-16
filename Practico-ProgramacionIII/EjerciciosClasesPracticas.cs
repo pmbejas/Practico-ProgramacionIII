@@ -176,8 +176,8 @@ namespace Practico_ProgramacionIII
         public static void Principal()
         {
             Console.Clear();
-            int opcionElegida = -1;
-            while (opcionElegida != 0)
+            int opcion = -1;
+            while (opcion != 0)
             {
                 Console.Clear();
                 Funciones.MostrarTitulo(Globales.pieDePagina, ConsoleColor.DarkGray, Console.WindowHeight-1);
@@ -192,51 +192,30 @@ namespace Practico_ProgramacionIII
                 Console.WriteLine("\n");
                 Console.ForegroundColor = Globales.colorTextoTitulo;
                 Console.WriteLine("Menu de Opciones:");
-                Console.ForegroundColor = Globales.colorTextoMensaje;
-                Console.WriteLine();
-                Console.Write("  1. Ejercicio 1: ");
-                Funciones.TextoEnColor("Permiso de Ingreso (Clase del día 14/04/2026)", ConsoleColor.DarkCyan, ConsoleColor.White);
-                Console.WriteLine();
-                Console.Write("  2. Ejercicio 2: ");
-                Funciones.TextoEnColor("Sistema simple de alumnos (Clase del día 21/04/2026)", ConsoleColor.DarkCyan, ConsoleColor.White);
-                Console.WriteLine();
-                Console.Write("  3. Ejercicio 3: ");
-                Funciones.TextoEnColor("POO: Encapsulamiento - Sistema Bancario", ConsoleColor.DarkCyan, ConsoleColor.White);
-                Console.WriteLine();
-                Console.Write("  4. Ejercicio 4: ");
-                Funciones.TextoEnColor("En Construcción", ConsoleColor.DarkCyan, ConsoleColor.White);
-                Console.WriteLine();
-                Console.Write("  5. Ejercicio 5: ");
-                Funciones.TextoEnColor("En Construcción", ConsoleColor.DarkCyan, ConsoleColor.White);
-                Console.WriteLine();
-                Console.Write("  6. Ejercicio 6: ");
-                Funciones.TextoEnColor("En Construcción", ConsoleColor.DarkCyan, ConsoleColor.White);
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.ForegroundColor= ConsoleColor.DarkYellow;
-                Console.WriteLine("  0. Salir");
-                Console.WriteLine();
-                opcionElegida = Funciones.ReadInteger("Ejercicio a ejecutar?: ", ConsoleColor.DarkGreen);
 
-                Action ejercicioAEjecutar = opcionElegida switch
+                OpcionMenu[] opciones = new OpcionMenu[]
+                {
+                    new OpcionMenu { Valor = 1, Titulo = "Ejercicio 1: ", TituloColor = "Permiso de Ingreso (Clase del día 14/04/2026)" },
+                    new OpcionMenu { Valor = 2, Titulo = "Ejercicio 2: ", TituloColor = "Sistema simple de alumnos (Clase del día 21/04/2026)" },
+                    new OpcionMenu { Valor = 3, Titulo = "Ejercicio 1: ", TituloColor = "POO: Encapsulamiento - Sistema Bancario" },
+                    new OpcionMenu { Valor = 4, Titulo = "Ejercicio 1: ", TituloColor = "POO: Herencia - Nomina de Empleados" },
+                    new OpcionMenu { Valor = 5, Titulo = "Ejercicio 1: ", TituloColor = "POO: Polimorfismo - Notificadores" },
+                    new OpcionMenu { Valor = 0, Titulo = "Salir", TituloColor = "" }
+                };
+
+                opcion = Funciones.GenerarMenu(opciones, 2, 8, ConsoleColor.Yellow, ConsoleColor.DarkCyan);
+
+                Action opcionElegida = opcion switch
                 {
                     1 => () => Ejercicio1(),
                     2 => () => Ejercicio2(),
-                    3 => () => ObjetosEncapsulamiento.Principal(),
-                    4 => () => Ejercicio4(),
-                    5 => () => Ejercicio5(),
-                    6 => () => Ejercicio6(),
-                    0 => () => { },
-                    _ => () => 
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Opción no válida. Selecciona una opción del menú.");
-                            Console.ResetColor();
-                            Console.ReadKey();
-                        }
+                    3 => () => POOEncapsulamiento.Principal(),
+                    4 => () => POOHerencia.Principal(),
+                    5 => () => POOPolimorfismo.Principal(),
+                    0 => () => {}, 
+                    _ => () => Funciones.EsperarFinalSistema(),
                 };
-
-                ejercicioAEjecutar();
+                opcionElegida();
             }
         }
     }

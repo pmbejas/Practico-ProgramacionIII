@@ -274,19 +274,19 @@ namespace Practico_ProgramacionIII
             Console.WriteLine();       
         }
 
-        public static int GenerarMenu(OpcionMenu[] listadoOpciones, int filaInicial, ConsoleColor colorVineta = ConsoleColor.White, ConsoleColor colorOpcionColor = ConsoleColor.White, bool conMargenes=true)
+        public static int GenerarMenu(OpcionMenu[] listadoOpciones, int columnaInicial, int filaInicial, ConsoleColor colorVineta = ConsoleColor.White, ConsoleColor colorOpcionColor = ConsoleColor.White, bool conMargenes=true)
         {
             void RemarcarOpcion(int opcionElegida, ConsoleColor colorFondo  , int anchoTotal)
             {
                 Console.BackgroundColor = colorFondo;
                 if (conMargenes) {
                     string margenes = new string(' ', anchoTotal);   
-                    Console.SetCursorPosition(0, filaInicial+(opcionElegida*2)-1);
+                    Console.SetCursorPosition(columnaInicial, filaInicial+(opcionElegida*2)-1);
                     Console.Write(margenes);
-                    Console.SetCursorPosition(0, filaInicial+(opcionElegida*2)+1);
+                    Console.SetCursorPosition(columnaInicial, filaInicial+(opcionElegida*2)+1);
                     Console.Write(margenes);
                 }
-                Console.SetCursorPosition(0, filaInicial+(opcionElegida*2));
+                Console.SetCursorPosition(columnaInicial, filaInicial+(opcionElegida*2));
                 Funciones.TextoEnColor($"  {listadoOpciones[opcionElegida].Valor}. ", opcionElegida < listadoOpciones.Length-1 ? colorVineta : colorFondo, Globales.colorTextoMensaje);
                 Console.Write(listadoOpciones[opcionElegida].Titulo);
                 string espacios = new string(' ', anchoTotal-listadoOpciones[opcionElegida].Titulo.Length-listadoOpciones[opcionElegida].TituloColor.Length-listadoOpciones[opcionElegida].Valor.ToString().Length-4);
@@ -343,17 +343,17 @@ namespace Practico_ProgramacionIII
             }        
 
             int opcionElegida = 0;    
-            Console.SetCursorPosition(0, filaInicial);
+            Console.SetCursorPosition(columnaInicial, filaInicial);
             int anchoTotal=0;
             for (int i = 0; i < listadoOpciones.Length; i++)
             {
+                Console.SetCursorPosition(columnaInicial, filaInicial+(i*2));
                 Funciones.TextoEnColor($"  {listadoOpciones[i].Valor}. ", i < listadoOpciones.Length-1 ? colorVineta : ConsoleColor.Black, Globales.colorTextoMensaje);
                 Console.Write(listadoOpciones[i].Titulo);
                 Funciones.TextoEnColor(listadoOpciones[i].TituloColor, colorOpcionColor, Globales.colorTextoMensaje);
-                Console.WriteLine("\n");
                 anchoTotal=Math.Max(anchoTotal, listadoOpciones[i].Valor.ToString().Length+listadoOpciones[i].Titulo.Length+listadoOpciones[i].TituloColor.Length+6);
             }
-
+            Console.SetCursorPosition(columnaInicial+4, filaInicial+(listadoOpciones.Length*2));
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("  F1: Ayuda");
             
@@ -428,6 +428,87 @@ namespace Practico_ProgramacionIII
                 Console.Write(new string(' ', Console.WindowWidth));
             }
             Console.SetCursorPosition(0, linea);
+        }
+
+        static void DibujarVentana(string titulo, int ancho, int alto, int columna, int fila, ConsoleColor colorLinea = ConsoleColor.White)
+        {
+            
+            Console.ForegroundColor = colorLinea;
+            for (int i = 1; i <= ancho; i++)
+            {
+                Console.SetCursorPosition(columna+i, fila);
+                Console.Write("─");
+                Console.SetCursorPosition(columna+i, fila+alto);
+                Console.Write("─");
+            }
+            for (int i = 1; i <= alto; i++)
+            {
+                Console.SetCursorPosition(columna, fila+i);
+                Console.Write("│");
+                Console.SetCursorPosition(columna+ancho, fila+i);
+                Console.Write("│");
+            }
+            Console.SetCursorPosition(columna, fila);
+            Console.Write("┌");
+            Console.SetCursorPosition(columna+ancho, fila);
+            Console.Write("┐");
+            Console.SetCursorPosition(columna, fila+alto);
+            Console.Write("└");
+            Console.SetCursorPosition(columna+ancho, fila+alto);
+            Console.Write("┘");
+            if (titulo.Length > 0)
+            {
+                DivisorVentana(ancho, columna, fila+2);
+                Console.SetCursorPosition(columna+(((ancho - titulo.Length)/2)), fila + 1);
+                Console.Write(titulo);
+            }
+        }
+
+        static void DivisorVentana(int ancho, int columna, int fila)
+        {
+            for (int i = 1; i <= ancho; i++)
+            {
+                Console.SetCursorPosition(columna + i, fila);
+                Console.Write("─");
+            }
+            Console.SetCursorPosition(columna, fila);
+            Console.Write("├");
+            Console.SetCursorPosition(columna+ancho, fila);
+            Console.Write("┤");
+        }
+        
+        static bool VentanaAviso(string[] mensajes,int ancho, int alto, int columna, int fila, ConsoleColor colorFondo, bool solicitaConfirmacion=false)
+        {
+            Console.BackgroundColor = colorFondo;
+            DibujarVentana("", ancho, alto, columna, fila);
+            Console.ForegroundColor = colorFondo;
+            for (int i = 1; i < ancho; i++)
+            {
+                for (int j = 1; j < alto; j++)
+                {
+                    Console.SetCursorPosition(columna+i,fila+j);
+                    Console.Write("█");
+                }
+                    
+            }
+            Console.ForegroundColor = ConsoleColor.White;
+            for (int i =0; i < mensajes.Length; i++)
+            {
+                Console.SetCursorPosition(columna + 5, fila +2 + (i*2));
+                Console.Write(mensajes[i]);
+            }
+            Console.ReadKey(true);
+            Console.ResetColor();
+            for (int i = 0; i <= ancho; i++)
+            {
+                for (int j = 0; j <= alto; j++)
+                {
+                    Console.SetCursorPosition(columna+i,fila+j);
+                    Console.Write(" ");
+                }
+                    
+            }
+            return false;
         }
     }
 }

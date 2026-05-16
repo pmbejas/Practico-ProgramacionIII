@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace Practico_ProgramacionIII
 {
-    public class ObjetosEncapsulamiento
+    public class POOEncapsulamiento
     {
         public static CuentaBancaria cuentaCliente = new CuentaBancaria(CuentaBancaria.Tipos.Ahorro);
 

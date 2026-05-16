@@ -31,7 +31,7 @@
                     new OpcionMenu { Valor = -1, Titulo = "Salir", TituloColor = "", Ejecutar = () => { } }
                 };
                 
-                opcionElegida = Funciones.GenerarMenu(opcionesMenu, 5, ConsoleColor.DarkYellow, ConsoleColor.DarkCyan, true);
+                opcionElegida = Funciones.GenerarMenu(opcionesMenu, 2, 5, ConsoleColor.DarkYellow, ConsoleColor.DarkCyan, true);
 
                 if (opcionElegida != -1)
                 {
