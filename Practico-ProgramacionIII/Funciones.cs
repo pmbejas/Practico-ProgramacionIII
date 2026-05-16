@@ -224,6 +224,8 @@ namespace Practico_ProgramacionIII
                         Console.SetCursorPosition(columna + password.Length, fila);
                     }
                 }
+
+                
                 else if (keyPressed.KeyChar >= 32 && keyPressed.KeyChar <= 126)
                 {
                     password.Append(keyPressed.KeyChar);
